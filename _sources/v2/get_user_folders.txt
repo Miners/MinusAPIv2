@@ -1,0 +1,22 @@
+.. _get_user_folders:
+
+User's folder list
+==================
+
+URL: ``/api/v2/users/[slug]/folders``
+
+Attributes:
+
++------+-----------------+-------------+
+| Name | Where?          | Description |
++======+=================+=============+
+| slug | part of the url | User's slug |
++------+-----------------+-------------+
+
+Available methods:
+ * GET
+
+Description:
+    Gives back a list of folders belonging to a user.
+
+

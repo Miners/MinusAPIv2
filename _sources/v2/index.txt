@@ -1,0 +1,52 @@
+
+
+Minus.com API v2 Reference
+==========================
+
+At the lowest level, Minus exposes its API with a REST, http-accessible, API. We have designed our API to allow you to easily create folders and upload files programmatically. 
+
+The API is open and no registration is required.
+
+Please subscribe to our http://blog.minus.com for any updates regarding our API and contact us if you have any questions.
+
+API objects
+-----------
+
+Through the API the developers can read/edit/create/delete the main 3 objects  of the Minus System.
+
+.. toctree::
+    :maxdepth: 1
+    
+    user
+    folder
+    file
+
+Interfaces
+----------
+
+.. toctree::
+    :maxdepth: 1
+
+    get_activeuser
+    get_user
+    get_folder
+    get_file
+    get_folder_files
+    get_user_folders
+
+Authentication
+--------------
+
+
+
+Where can you find the API?
+---------------------------
+
+| It's located under: 
+| http://minus.com/api/v2/
+
+Changelist
+----------
+
+
+

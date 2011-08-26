@@ -1,0 +1,46 @@
+.. _file:
+
+File Object
+===========
+
+This object represents a File in a Folder.
+
++----------+--------+---------------------+
+| Name     | Type   | Description         |
++==========+========+=====================+
+| id       | string | File ID             |
++----------+--------+---------------------+
+| name     | string | Name of file        |
++----------+--------+---------------------+
+| title    | string | Users can add title |
++----------+--------+---------------------+
+| caption  | string | Caption             |
++----------+--------+---------------------+
+| width    | int    | Picture width       |
++----------+--------+---------------------+
+| height   | int    | Picture height      |
++----------+--------+---------------------+
+| filesize | int    | File size           |
++----------+--------+---------------------+
+| mimetype | string | Mimetype            |
++----------+--------+---------------------+
+| folder   | string | Link to Folder      |
++----------+--------+---------------------+
+| url      | string | Url                 |
++----------+--------+---------------------+
+
+
+Example::
+
+    {
+        "caption": "", 
+        "filesize": 0, 
+        "folder": "http://minus.com/api/v2/folders/bpxV2FEB8", 
+        "height": 0, 
+        "id": "e3TB3m7E", 
+        "mimetype": "", 
+        "name": "P1000008.JPG", 
+        "title": "", 
+        "url": "http://minus.com/api/v2/files/e3TB3m7E", 
+        "width": 0
+    }

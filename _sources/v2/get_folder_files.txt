@@ -1,0 +1,22 @@
+.. _get_folder_files:
+
+File list in a Folder
+=====================
+
+URL: ``/api/v2/folders/[id]/files``
+
+Attributes:
+
++------+-----------------+-------------+
+| Name | Where?          | Description |
++======+=================+=============+
+| id   | part of the url | Folder ID   |
++------+-----------------+-------------+
+
+Available methods:
+ * GET
+
+Description:
+    Gives back a list of files in a folder.
+
+

@@ -1,0 +1,46 @@
+.. _folder:
+
+Folder object
+=============
+
+The Folder can have one or more files.
+
++-------------------+---------+--------------------------+
+| Name              | Type    | Description              |
++===================+=========+==========================+
+| id                | string  | ID                       |
++-------------------+---------+--------------------------+
+| thumbnail_url     | string  | Thumbnail URL            |
++-------------------+---------+--------------------------+
+| name              | string  | Folder name              |
++-------------------+---------+--------------------------+
+| is_public         | boolean | Is the folder public?    |
++-------------------+---------+--------------------------+
+| view_count        | int     | Number of views          |
++-------------------+---------+--------------------------+
+| creator           | string  | Link to the creator User |
++-------------------+---------+--------------------------+
+| file_count        | int     | Number of files          |
++-------------------+---------+--------------------------+
+| date_last_updated | date    | Last updated on          |
++-------------------+---------+--------------------------+
+| files             | string  | Link to the File list    |
++-------------------+---------+--------------------------+
+| url               | string  | URL                      |
++-------------------+---------+--------------------------+
+
+
+Example::
+
+    {
+        "creator": "http://minus.com/api/v2/users/Example", 
+        "date_last_updated": "2011-08-23 11:47:11", 
+        "file_count": 2, 
+        "files": "http://minus.com/api/v2/folders/bpxV2FEB8/files", 
+        "id": "bpxV2FEB8", 
+        "is_public": false, 
+        "name": "P1000008", 
+        "thumbnail_url": "/ke3TB3m7E.jpg", 
+        "url": "http://minus.com/api/v2/folders/bpxV2FEB8", 
+        "view_count": 3
+    }
