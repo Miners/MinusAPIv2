@@ -5,8 +5,6 @@ Minus.com API v2 Reference
 
 At the lowest level, Minus exposes its API with a REST, http-accessible, API. We have designed our API to allow you to easily create folders and upload files programmatically. 
 
-The API is open and no registration is required.
-
 Please subscribe to our http://blog.minus.com for any updates regarding our API and contact us if you have any questions.
 
 API objects
@@ -37,6 +35,25 @@ Interfaces
 Authentication
 --------------
 
+To use the Minus API the developers have to register their applications. Every
+application gets an ID and a secret which allows the Minus to identify and 
+authenticate the requests from the applications. 
+
+We have a short overview about oAuth 2.0, which is the only way of the 
+authentication and authorization. 
+
+The tutorial section shows practical examples to implement oAuth 2.0 on the client
+side.
+
+.. note::
+    During the testing period developers should request an API key via email. 
+
+
+.. toctree::
+    :maxdepth: 1
+
+    auth_overview
+    auth_tutorial
 
 
 Where can you find the API?
@@ -44,9 +61,4 @@ Where can you find the API?
 
 | It's located under: 
 | http://minus.com/api/v2/
-
-Changelist
-----------
-
-
 

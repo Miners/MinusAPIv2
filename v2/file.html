@@ -51,12 +51,12 @@
             
   <div class="section" id="file-object">
 <span id="file"></span><h1>File Object<a class="headerlink" href="#file-object" title="Permalink to this headline">¶</a></h1>
-<p>This object represents a File in a Folder.</p>
+<p>File in a folder. A folder can have many files, but a file belongs to only one folder.</p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="26%" />
-<col width="21%" />
-<col width="54%" />
+<col width="24%" />
+<col width="24%" />
+<col width="51%" />
 </colgroup>
 <thead valign="bottom">
 <tr><th class="head">Name</th>
@@ -105,20 +105,24 @@
 <td>string</td>
 <td>Url</td>
 </tr>
+<tr><td>uploaded</td>
+<td>datetime</td>
+<td>Uploaded at</td>
+</tr>
 </tbody>
 </table>
 <p>Example:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
     <span class="s">&quot;caption&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
-    <span class="s">&quot;filesize&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="s">&quot;folder&quot;</span><span class="p">:</span> <span class="s">&quot;http://minus.com/api/v2/folders/bpxV2FEB8&quot;</span><span class="p">,</span>
-    <span class="s">&quot;height&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="s">&quot;e3TB3m7E&quot;</span><span class="p">,</span>
+    <span class="s">&quot;filesize&quot;</span><span class="p">:</span> <span class="mi">575580</span><span class="p">,</span>
+    <span class="s">&quot;folder&quot;</span><span class="p">:</span> <span class="s">&quot;http://minus.com/api/v2/folders/bm4vxJAq4&quot;</span><span class="p">,</span>
+    <span class="s">&quot;height&quot;</span><span class="p">:</span> <span class="mi">1067</span><span class="p">,</span>
+    <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="s">&quot;buDKSiH2K0l8b&quot;</span><span class="p">,</span>
     <span class="s">&quot;mimetype&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
-    <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;P1000008.JPG&quot;</span><span class="p">,</span>
+    <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;Landscape.jpg&quot;</span><span class="p">,</span>
     <span class="s">&quot;title&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
-    <span class="s">&quot;url&quot;</span><span class="p">:</span> <span class="s">&quot;http://minus.com/api/v2/files/e3TB3m7E&quot;</span><span class="p">,</span>
-    <span class="s">&quot;width&quot;</span><span class="p">:</span> <span class="mi">0</span>
+    <span class="s">&quot;url&quot;</span><span class="p">:</span> <span class="s">&quot;http://minus.com/api/v2/files/buDKSiH2K0l8b&quot;</span><span class="p">,</span>
+    <span class="s">&quot;width&quot;</span><span class="p">:</span> <span class="mi">1600</span>
 <span class="p">}</span>
 </pre></div>
 </div>
