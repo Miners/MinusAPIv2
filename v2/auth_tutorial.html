@@ -1,0 +1,192 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>oAuth 2.0 tutorial &mdash; Minus API v2.09 documentation</title>
+    <link rel="stylesheet" href="../static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.09',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../static/jquery.js"></script>
+    <script type="text/javascript" src="../static/underscore.js"></script>
+    <script type="text/javascript" src="../static/doctools.js"></script>
+    <link rel="top" title="Minus API v2.09 documentation" href="../index.html" />
+    <link rel="up" title="Minus.com API v2 Reference" href="index.html" />
+    <link rel="prev" title="oAuth 2.0 authentication overview" href="auth_overview.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="auth_overview.html" title="oAuth 2.0 authentication overview"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Minus API v2.09 documentation</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">Minus.com API v2 Reference</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="oauth-2-0-tutorial">
+<span id="auth-tutorial"></span><h1>oAuth 2.0 tutorial<a class="headerlink" href="#oauth-2-0-tutorial" title="Permalink to this headline">¶</a></h1>
+<p>This tutorial helps to understand the oAuth authentication system implemented by Minus.
+It also provides nice examples to implent your client application based on Minus API.</p>
+<p>Before you read further, please inform about oAuth on the overview page.</p>
+<p>Currently we support only the &#8216;Resource Owner Password Credentials&#8217; flow, and we
+plan to support the &#8216;Authorization Code&#8217; flow. The client applications will get
+refresh_token so they can request new access_token everytime.</p>
+<div class="section" id="authentication">
+<h2>Authentication<a class="headerlink" href="#authentication" title="Permalink to this headline">¶</a></h2>
+<p>For the early-adopter applications this is the only way to authenticate a user.
+This flow requires the end-users to type in their password. However the
+applications should not save the passwords. The tutorial will explain it more.</p>
+<div class="section" id="getting-tokens-using-user-credentials">
+<h3>Getting tokens using user credentials<a class="headerlink" href="#getting-tokens-using-user-credentials" title="Permalink to this headline">¶</a></h3>
+<p>Applications must require the tokens using the /oauth/token url.</p>
+<p>Request method can be either GET or POST.</p>
+<p>The client_id and client_secret can be in the header authentication.</p>
+<p>Example token request (POST):</p>
+<div class="highlight-python"><pre>POST /oauth/token HTTP/1.1
+Host: minus.com
+Content-Type: application/x-www-form-urlencoded; charset=UTF-8
+
+grant_type=password&amp;client_id=8c1930fddec2e70a9a6791c1fb2b82&amp;client_secret=e80eae9fe98d431f5e642714695d7c&amp;scope=read_public&amp;username=example&amp;password=example</pre>
+</div>
+<p>Example token request (GET):</p>
+<div class="highlight-python"><pre>GET /oauth/token?grant_type=password&amp;client_id=8c1930fddec2e70a9a6791c1fb2b82&amp;client_secret=e80eae9fe98d431f5e642714695d7c&amp;scope=read_public&amp;username=example&amp;password=example HTTP/1.1
+Host: minus.com
+Content-Type: application/x-www-form-urlencoded; charset=UTF-8</pre>
+</div>
+<p>If the authentication is sucessfull, the server response contains the tokens:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;access_token&quot;</span><span class="p">:</span> <span class="s">&quot;dc19a1ea88&quot;</span><span class="p">,</span>
+    <span class="s">&quot;token_type&quot;</span><span class="p">:</span> <span class="s">&quot;bearer&quot;</span><span class="p">,</span>
+    <span class="s">&quot;expire_in&quot;</span><span class="p">:</span> <span class="mi">3600</span><span class="p">,</span>
+    <span class="s">&quot;refresh_token&quot;</span><span class="p">:</span> <span class="s">&quot;20ad15128b&quot;</span><span class="p">,</span>
+    <span class="s">&quot;scope&quot;</span><span class="p">:</span> <span class="s">&quot;read_public&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>After successful authentication process applications must drop the user password.
+They can require always new access_token using refresh_token. Therefore the
+refresh_token is saveable.</p>
+</div>
+<div class="section" id="refreshing-an-access-token">
+<h3>Refreshing an access_token<a class="headerlink" href="#refreshing-an-access-token" title="Permalink to this headline">¶</a></h3>
+<p>As we described the refresh_token is useful when the access_token is not valid
+anymore.</p>
+<p>Request method can be either GET or POST.</p>
+<p>Example token request (POST):</p>
+<div class="highlight-python"><pre>POST /oauth/token HTTP/1.1
+Host: minus.com
+Content-Type: application/x-www-form-urlencoded; charset=UTF-8
+
+grant_type=refresh_token&amp;client_id=8c1930fddec2e70a9a6791c1fb2b82&amp;client_secret=e80eae9fe98d431f5e642714695d7c&amp;scope=read_public&amp;refresh_token=20ad15128b</pre>
+</div>
+<p>Response is the same like above.</p>
+</div>
+</div>
+<div class="section" id="using-minus-api">
+<h2>Using Minus API<a class="headerlink" href="#using-minus-api" title="Permalink to this headline">¶</a></h2>
+<p>With a valid access_token the application can use the API. It can send the
+access_token in 3 places of the request:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Header authentication (Bearer)</li>
+<li>GET parameter: bearer_token</li>
+<li>POST parameter: bearer_token</li>
+</ul>
+</div></blockquote>
+<p>Example API GET request using Header Authorization:</p>
+<div class="highlight-python"><pre>GET /api/v2/active_user HTTP/1.1
+Host: minus.com
+Authorization: Bearer dc19a1ea88</pre>
+</div>
+<p>Example API GET request using GET parameter as access_token:</p>
+<div class="highlight-python"><pre>POST /api/v2/active_user?bearer_token=dc19a1ea88 HTTP/1.1
+Host: minus.com</pre>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">oAuth 2.0 tutorial</a><ul>
+<li><a class="reference internal" href="#authentication">Authentication</a><ul>
+<li><a class="reference internal" href="#getting-tokens-using-user-credentials">Getting tokens using user credentials</a></li>
+<li><a class="reference internal" href="#refreshing-an-access-token">Refreshing an access_token</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#using-minus-api">Using Minus API</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="auth_overview.html"
+                        title="previous chapter">oAuth 2.0 authentication overview</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../sources/v2/auth_tutorial.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="auth_overview.html" title="oAuth 2.0 authentication overview"
+             >previous</a> |</li>
+        <li><a href="../index.html">Minus API v2.09 documentation</a> &raquo;</li>
+          <li><a href="index.html" >Minus.com API v2 Reference</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Minus Inc..
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>
