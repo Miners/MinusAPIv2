@@ -3,44 +3,53 @@
 File Object
 ===========
 
-This object represents a File in a Folder.
+File in a folder. A folder can have many files, but a file belongs to only one folder.
 
-+----------+--------+---------------------+
-| Name     | Type   | Description         |
-+==========+========+=====================+
-| id       | string | File ID             |
-+----------+--------+---------------------+
-| name     | string | Name of file        |
-+----------+--------+---------------------+
-| title    | string | Users can add title |
-+----------+--------+---------------------+
-| caption  | string | Caption             |
-+----------+--------+---------------------+
-| width    | int    | Picture width       |
-+----------+--------+---------------------+
-| height   | int    | Picture height      |
-+----------+--------+---------------------+
-| filesize | int    | File size           |
-+----------+--------+---------------------+
-| mimetype | string | Mimetype            |
-+----------+--------+---------------------+
-| folder   | string | Link to Folder      |
-+----------+--------+---------------------+
-| url      | string | Url                 |
-+----------+--------+---------------------+
-
++---------------+----------+-----------------------+
+| Name          | Type     | Description           |
++===============+==========+=======================+
+| id            | string   | File ID               |
++---------------+----------+-----------------------+
+| name          | string   | Name of file          |
++---------------+----------+-----------------------+
+| title         | string   | Users can add title   |
++---------------+----------+-----------------------+
+| caption       | string   | Caption               |
++---------------+----------+-----------------------+
+| width         | int      | Picture width         |
++---------------+----------+-----------------------+
+| height        | int      | Picture height        |
++---------------+----------+-----------------------+
+| filesize      | int      | File size             |
++---------------+----------+-----------------------+
+| mimetype      | string   | Mimetype              |
++---------------+----------+-----------------------+
+| folder        | string   | Link to Folder        |
++---------------+----------+-----------------------+
+| url           | string   | Url                   |
++---------------+----------+-----------------------+
+| uploaded      | datetime | Uploaded at           |
++---------------+----------+-----------------------+
+| url_rawfile   | string   | Link to original file |
++---------------+----------+-----------------------+
+| url_thumbnail | string   | Thumbnail url         |
++---------------+----------+-----------------------+
 
 Example::
 
     {
-        "caption": "", 
-        "filesize": 0, 
-        "folder": "http://minus.com/api/v2/folders/bpxV2FEB8", 
-        "height": 0, 
-        "id": "e3TB3m7E", 
-        "mimetype": "", 
-        "name": "P1000008.JPG", 
-        "title": "", 
-        "url": "http://minus.com/api/v2/files/e3TB3m7E", 
-        "width": 0
+        "mimetype": "",
+        "uploaded": "2011-09-09 14:28:52",
+        "name": "macskafogo.jpeg",
+        "caption": "",
+        "url": "http://minus.com/api/v2/files/hvzcZLBsjyIF",
+        "title": "",
+        "height": 302,
+        "width": 400,
+        "uploaded_ago": 1209,
+        "filesize": 38184,
+        "url_rawfile": "http://i.min.us/i%s%shvzcZLBsjyIF.jpeg",
+        "folder": "http://minus.com/api/v2/folders/0FQHJakL",
+        "url_thumbnail": "http://k.min.us/j%s%shvzcZLBsjyIF.jpeg",
+        "id": "hvzcZLBsjyIF"
     }

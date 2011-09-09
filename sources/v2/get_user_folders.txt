@@ -15,8 +15,31 @@ Attributes:
 
 Available methods:
  * GET
+    Give back a list of folders belonging to a user.
+ * POST
+    Create new folder 
 
-Description:
-    Gives back a list of folders belonging to a user.
 
 
+Example GET response::
+
+    {
+        "results": [{
+            "files": "http://minus.com/api/v2/folders/0FQHJakL/files",
+            "view_count": 0,
+            "date_last_updated": "2011-09-09 14:29:18",
+            "name": "Test gallery",
+            "creator": "http://minus.com/api/v2/users/api_examples",
+            "url": "http://minus.com/api/v2/folders/0FQHJakL",
+            "thumbnail_url": "//k.minus.com/kOO0hyzBL1IGk.jpg",
+            "file_count": 3,
+            "is_public": true,
+            "id": "0FQHJakL"
+        }],
+        "page": 1,
+        "next": null,
+        "per_page": 50,
+        "total": 1,
+        "pages": 1,
+        "previous": null
+    }

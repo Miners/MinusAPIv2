@@ -15,8 +15,64 @@ Attributes:
 
 Available methods:
  * GET
+ * POST
 
 Description:
     Gives back a list of files in a folder.
 
+Example GET request::
 
+    {
+        "results": [{
+            "mimetype": "",
+            "uploaded": "2011-09-09 14:28:52",
+            "name": "macskafogo.jpeg",
+            "caption": "",
+            "url": "http://minus.com/api/v2/files/hvzcZLBsjyIF",
+            "title": "",
+            "height": 302,
+            "width": 400,
+            "uploaded_ago": 313,
+            "filesize": 38184,
+            "url_rawfile": "http://i.min.us/i%s%shvzcZLBsjyIF.jpeg",
+            "folder": "http://minus.com/api/v2/folders/0FQHJakL",
+            "url_thumbnail": "http://k.min.us/j%s%shvzcZLBsjyIF.jpeg",
+            "id": "hvzcZLBsjyIF"
+        }, {
+            "mimetype": "",
+            "uploaded": "2011-09-09 14:25:12",
+            "name": "41801_122019251192515_3961844_n.jpg",
+            "caption": "",
+            "url": "http://minus.com/api/v2/files/ZURP699t3rkE",
+            "title": "",
+            "height": 259,
+            "width": 180,
+            "uploaded_ago": 533,
+            "filesize": 22302,
+            "url_rawfile": "http://i.min.us/i%s%sZURP699t3rkE.jpg",
+            "folder": "http://minus.com/api/v2/folders/0FQHJakL",
+            "url_thumbnail": "http://k.min.us/j%s%sZURP699t3rkE.jpg",
+            "id": "ZURP699t3rkE"
+        }, {
+            "mimetype": "",
+            "uploaded": "2011-09-09 14:25:11",
+            "name": "vuk_1_406600_12746.jpg",
+            "caption": "",
+            "url": "http://minus.com/api/v2/files/OO0hyzBL1IGk",
+            "title": "",
+            "height": 423,
+            "width": 600,
+            "uploaded_ago": 534,
+            "filesize": 58677,
+            "url_rawfile": "http://i.min.us/i%s%sOO0hyzBL1IGk.jpg",
+            "folder": "http://minus.com/api/v2/folders/0FQHJakL",
+            "url_thumbnail": "http://k.min.us/j%s%sOO0hyzBL1IGk.jpg",
+            "id": "OO0hyzBL1IGk"
+        }],
+        "page": 1,
+        "next": null,
+        "per_page": 50,
+        "total": 3,
+        "pages": 1,
+        "previous": null
+    }
