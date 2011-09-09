@@ -52,89 +52,132 @@
   <div class="section" id="user-object">
 <span id="user"></span><h1>User Object<a class="headerlink" href="#user-object" title="Permalink to this headline">¶</a></h1>
 <p>This object represents a Minus user</p>
+<p>Some fields visible only for actual user, they are marked.</p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="18%" />
-<col width="8%" />
-<col width="74%" />
+<col width="17%" />
+<col width="7%" />
+<col width="7%" />
+<col width="68%" />
 </colgroup>
 <thead valign="bottom">
 <tr><th class="head">Name</th>
 <th class="head">Type</th>
+<th class="head">Private</th>
 <th class="head">Description</th>
 </tr>
 </thead>
 <tbody valign="top">
 <tr><td>username</td>
 <td>string</td>
+<td>&nbsp;</td>
 <td>Username</td>
 </tr>
 <tr><td>display_name</td>
 <td>string</td>
+<td>&nbsp;</td>
 <td>Display name</td>
 </tr>
 <tr><td>description</td>
 <td>string</td>
+<td>&nbsp;</td>
 <td>Description</td>
 </tr>
 <tr><td>email</td>
 <td>string</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
 <td>User email</td>
 </tr>
 <tr><td>slug</td>
 <td>string</td>
+<td>&nbsp;</td>
 <td>Using this value you can build urls for the webpage. e.g. <a class="reference external" href="http://minus.com/u[slug">http://minus.com/u[slug</a>]</td>
 </tr>
 <tr><td>fb_profile_link</td>
 <td>string</td>
+<td>&nbsp;</td>
 <td>If user has facebook connection, the value contains the link to facebook profile.</td>
 </tr>
 <tr><td>fb_username</td>
 <td>string</td>
+<td>&nbsp;</td>
 <td>If user has facebook connection, the value contains the facebook username.</td>
 </tr>
 <tr><td>twitter_screen_name</td>
 <td>string</td>
+<td>&nbsp;</td>
 <td>If the user has twitter connection, twitter username</td>
 </tr>
 <tr><td>visits</td>
 <td>integer</td>
+<td>&nbsp;</td>
 <td>Number of visits</td>
 </tr>
 <tr><td>karma</td>
 <td>integer</td>
+<td>&nbsp;</td>
 <td>Karma</td>
 </tr>
 <tr><td>shared</td>
 <td>integer</td>
+<td>&nbsp;</td>
 <td>Number of shared elements</td>
 </tr>
 <tr><td>folders</td>
 <td>string</td>
+<td>&nbsp;</td>
 <td>Link to the folder list.</td>
 </tr>
 <tr><td>url</td>
 <td>string</td>
+<td>&nbsp;</td>
 <td>URL</td>
+</tr>
+<tr><td>avatar</td>
+<td>string</td>
+<td>&nbsp;</td>
+<td>Avatar image url</td>
+</tr>
+<tr><td>storage_used</td>
+<td>integer</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>Storage usage (bytes)</td>
+</tr>
+<tr><td>storage_quota</td>
+<td>integer</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>Maximum available storage for user (bytes)</td>
 </tr>
 </tbody>
 </table>
 <p>Example:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
-     <span class="s">&quot;description&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
-     <span class="s">&quot;display_name&quot;</span><span class="p">:</span> <span class="s">&quot;Example&quot;</span><span class="p">,</span>
-     <span class="s">&quot;email&quot;</span><span class="p">:</span> <span class="s">&quot;a@example.com&quot;</span><span class="p">,</span>
-     <span class="s">&quot;fb_profile_link&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
-     <span class="s">&quot;fb_username&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
-     <span class="s">&quot;folders&quot;</span><span class="p">:</span> <span class="s">&quot;http://minus.com/api/v2/users/Example/folders&quot;</span><span class="p">,</span>
-     <span class="s">&quot;karma&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-     <span class="s">&quot;shared&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-     <span class="s">&quot;slug&quot;</span><span class="p">:</span> <span class="s">&quot;macat&quot;</span><span class="p">,</span>
-     <span class="s">&quot;twitter_screen_name&quot;</span><span class="p">:</span> <span class="s">&quot;example&quot;</span><span class="p">,</span>
-     <span class="s">&quot;url&quot;</span><span class="p">:</span> <span class="s">&quot;http://minus.com/api/v2/users/Example&quot;</span><span class="p">,</span>
-     <span class="s">&quot;username&quot;</span><span class="p">:</span> <span class="s">&quot;example&quot;</span><span class="p">,</span>
-     <span class="s">&quot;visits&quot;</span><span class="p">:</span> <span class="mi">8</span>
- <span class="p">}</span>
+    <span class="s">&quot;username&quot;</span><span class="p">:</span> <span class="s">&quot;api_examples&quot;</span><span class="p">,</span>
+    <span class="s">&quot;folders&quot;</span><span class="p">:</span> <span class="s">&quot;http://minus.com/api/v2/users/api_examples/folders&quot;</span><span class="p">,</span>
+    <span class="s">&quot;display_name&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+    <span class="s">&quot;description&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s">&quot;url&quot;</span><span class="p">:</span> <span class="s">&quot;http://minus.com/api/v2/users/api_examples&quot;</span><span class="p">,</span>
+    <span class="s">&quot;storage_quota&quot;</span><span class="p">:</span> <span class="mi">10000000000</span><span class="p">,</span>
+    <span class="s">&quot;visits&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s">&quot;email&quot;</span><span class="p">:</span> <span class="s">&quot;api_examples@maczak.hu&quot;</span><span class="p">,</span>
+    <span class="s">&quot;fb_username&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+    <span class="s">&quot;storage_used&quot;</span><span class="p">:</span> <span class="mi">119163</span><span class="p">,</span>
+    <span class="s">&quot;avatar&quot;</span><span class="p">:</span> <span class="s">&quot;http://dgbc7tshfzi70.cloudfront.net/smedia/minus/images/default_avatar.png&quot;</span><span class="p">,</span>
+    <span class="s">&quot;karma&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s">&quot;shared&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s">&quot;fb_profile_link&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+    <span class="s">&quot;slug&quot;</span><span class="p">:</span> <span class="s">&quot;api_examples&quot;</span><span class="p">,</span>
+    <span class="s">&quot;twitter_screen_name&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div>

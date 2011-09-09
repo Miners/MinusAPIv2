@@ -22,6 +22,45 @@ Through the API the developers can read/edit/create/delete the main 3 objects  o
 Interfaces
 ----------
 
+Minus API can return object and list as a response. 
+
+List pagination
+^^^^^^^^^^^^^^^
+
+A Standard list response looks like this::
+
+    {
+        "results": [{...},...],
+        "page": 2,
+        "next": null,
+        "per_page": 50,
+        "total": 3,
+        "pages": 2,
+        "previous": "/api/v2/folders/1FxDi1RA/files?page=1"
+    }
+
++----------+-------------+-----------------------------------+
+| Field    | Type        | Description                       |
++==========+=============+===================================+
+| results  | object list | Contains the list of objects.     |
++----------+-------------+-----------------------------------+
+| page     | integer     | Actual page of list               |
++----------+-------------+-----------------------------------+
+| next     | string      | Link to next page                 |
++----------+-------------+-----------------------------------+
+| per_page | integer     | Maximum number of items on a page |
++----------+-------------+-----------------------------------+
+| total    | integer     | Total number of items             |
++----------+-------------+-----------------------------------+
+| pages    | integer     | Total number of pages             |
++----------+-------------+-----------------------------------+
+| previous | string      | Link to previous page             |
++----------+-------------+-----------------------------------+
+
+table: overview of fields on a list page.
+
+Object interfaces
+"""""""""""""""""
 .. toctree::
     :maxdepth: 1
 
@@ -29,6 +68,12 @@ Interfaces
     get_user
     get_folder
     get_file
+
+List interfaces
+"""""""""""""""
+.. toctree::
+    :maxdepth: 1
+
     get_folder_files
     get_user_folders
 

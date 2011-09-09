@@ -33,14 +33,14 @@ The Folder can have one or more files.
 Example::
 
     {
-        "creator": "http://minus.com/api/v2/users/Example", 
-        "date_last_updated": "2011-08-23 11:47:11", 
-        "file_count": 2, 
-        "files": "http://minus.com/api/v2/folders/bpxV2FEB8/files", 
-        "id": "bpxV2FEB8", 
-        "is_public": false, 
-        "name": "P1000008", 
-        "thumbnail_url": "/ke3TB3m7E.jpg", 
-        "url": "http://minus.com/api/v2/folders/bpxV2FEB8", 
-        "view_count": 3
+        "files": "http://minus.com/api/v2/folders/0FQHJakL/files",
+        "view_count": 0,
+        "date_last_updated": "2011-09-09 14:28:54",
+        "name": "Test gallery",
+        "creator": "http://minus.com/api/v2/users/api_examples",
+        "url": "http://minus.com/api/v2/folders/0FQHJakL",
+        "thumbnail_url": "//k.minus.com/kOO0hyzBL1IGk.jpg",
+        "file_count": 3,
+        "is_public": true,
+        "id": "0FQHJakL"
     }

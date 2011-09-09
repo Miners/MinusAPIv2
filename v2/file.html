@@ -54,9 +54,9 @@
 <p>File in a folder. A folder can have many files, but a file belongs to only one folder.</p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="24%" />
-<col width="24%" />
-<col width="51%" />
+<col width="31%" />
+<col width="21%" />
+<col width="48%" />
 </colgroup>
 <thead valign="bottom">
 <tr><th class="head">Name</th>
@@ -109,20 +109,32 @@
 <td>datetime</td>
 <td>Uploaded at</td>
 </tr>
+<tr><td>url_rawfile</td>
+<td>string</td>
+<td>Link to original file</td>
+</tr>
+<tr><td>url_thumbnail</td>
+<td>string</td>
+<td>Thumbnail url</td>
+</tr>
 </tbody>
 </table>
 <p>Example:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
-    <span class="s">&quot;caption&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
-    <span class="s">&quot;filesize&quot;</span><span class="p">:</span> <span class="mi">575580</span><span class="p">,</span>
-    <span class="s">&quot;folder&quot;</span><span class="p">:</span> <span class="s">&quot;http://minus.com/api/v2/folders/bm4vxJAq4&quot;</span><span class="p">,</span>
-    <span class="s">&quot;height&quot;</span><span class="p">:</span> <span class="mi">1067</span><span class="p">,</span>
-    <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="s">&quot;buDKSiH2K0l8b&quot;</span><span class="p">,</span>
     <span class="s">&quot;mimetype&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
-    <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;Landscape.jpg&quot;</span><span class="p">,</span>
+    <span class="s">&quot;uploaded&quot;</span><span class="p">:</span> <span class="s">&quot;2011-09-09 14:28:52&quot;</span><span class="p">,</span>
+    <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;macskafogo.jpeg&quot;</span><span class="p">,</span>
+    <span class="s">&quot;caption&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+    <span class="s">&quot;url&quot;</span><span class="p">:</span> <span class="s">&quot;http://minus.com/api/v2/files/hvzcZLBsjyIF&quot;</span><span class="p">,</span>
     <span class="s">&quot;title&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
-    <span class="s">&quot;url&quot;</span><span class="p">:</span> <span class="s">&quot;http://minus.com/api/v2/files/buDKSiH2K0l8b&quot;</span><span class="p">,</span>
-    <span class="s">&quot;width&quot;</span><span class="p">:</span> <span class="mi">1600</span>
+    <span class="s">&quot;height&quot;</span><span class="p">:</span> <span class="mi">302</span><span class="p">,</span>
+    <span class="s">&quot;width&quot;</span><span class="p">:</span> <span class="mi">400</span><span class="p">,</span>
+    <span class="s">&quot;uploaded_ago&quot;</span><span class="p">:</span> <span class="mi">1209</span><span class="p">,</span>
+    <span class="s">&quot;filesize&quot;</span><span class="p">:</span> <span class="mi">38184</span><span class="p">,</span>
+    <span class="s">&quot;url_rawfile&quot;</span><span class="p">:</span> <span class="s">&quot;http://i.min.us/i</span><span class="si">%s%s</span><span class="s">hvzcZLBsjyIF.jpeg&quot;</span><span class="p">,</span>
+    <span class="s">&quot;folder&quot;</span><span class="p">:</span> <span class="s">&quot;http://minus.com/api/v2/folders/0FQHJakL&quot;</span><span class="p">,</span>
+    <span class="s">&quot;url_thumbnail&quot;</span><span class="p">:</span> <span class="s">&quot;http://k.min.us/j</span><span class="si">%s%s</span><span class="s">hvzcZLBsjyIF.jpeg&quot;</span><span class="p">,</span>
+    <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="s">&quot;hvzcZLBsjyIF&quot;</span>
 <span class="p">}</span>
 </pre></div>
 </div>

@@ -74,13 +74,45 @@
 </table>
 <dl class="docutils">
 <dt>Available methods:</dt>
-<dd><ul class="first last simple">
-<li>GET</li>
+<dd><ul class="first last">
+<li><dl class="first docutils">
+<dt>GET</dt>
+<dd><p class="first last">Give back a list of folders belonging to a user.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>POST</dt>
+<dd><p class="first last">Create new folder</p>
+</dd>
+</dl>
+</li>
 </ul>
 </dd>
-<dt>Description:</dt>
-<dd>Gives back a list of folders belonging to a user.</dd>
 </dl>
+<p>Example GET response:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;results&quot;</span><span class="p">:</span> <span class="p">[{</span>
+        <span class="s">&quot;files&quot;</span><span class="p">:</span> <span class="s">&quot;http://minus.com/api/v2/folders/0FQHJakL/files&quot;</span><span class="p">,</span>
+        <span class="s">&quot;view_count&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s">&quot;date_last_updated&quot;</span><span class="p">:</span> <span class="s">&quot;2011-09-09 14:29:18&quot;</span><span class="p">,</span>
+        <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;Test gallery&quot;</span><span class="p">,</span>
+        <span class="s">&quot;creator&quot;</span><span class="p">:</span> <span class="s">&quot;http://minus.com/api/v2/users/api_examples&quot;</span><span class="p">,</span>
+        <span class="s">&quot;url&quot;</span><span class="p">:</span> <span class="s">&quot;http://minus.com/api/v2/folders/0FQHJakL&quot;</span><span class="p">,</span>
+        <span class="s">&quot;thumbnail_url&quot;</span><span class="p">:</span> <span class="s">&quot;//k.minus.com/kOO0hyzBL1IGk.jpg&quot;</span><span class="p">,</span>
+        <span class="s">&quot;file_count&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+        <span class="s">&quot;is_public&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+        <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="s">&quot;0FQHJakL&quot;</span>
+    <span class="p">}],</span>
+    <span class="s">&quot;page&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s">&quot;next&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s">&quot;per_page&quot;</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span>
+    <span class="s">&quot;total&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s">&quot;pages&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s">&quot;previous&quot;</span><span class="p">:</span> <span class="n">null</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 </div>
 
 
