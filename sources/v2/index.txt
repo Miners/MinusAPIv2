@@ -105,5 +105,8 @@ Where can you find the API?
 ---------------------------
 
 | It's located under: 
-| http://minus.com/api/v2/
+| https://minus.com/api/v2/
+
+.. warning::
+    Using https connection is mandatory. We will disable connections without SSL.
 

@@ -52,37 +52,67 @@
   <div class="section" id="file-list-in-a-folder">
 <span id="get-folder-files"></span><h1>File list in a Folder<a class="headerlink" href="#file-list-in-a-folder" title="Permalink to this headline">¶</a></h1>
 <p>URL: <tt class="docutils literal"><span class="pre">/api/v2/folders/[id]/files</span></tt></p>
-<p>Attributes:</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="17%" />
-<col width="47%" />
-<col width="36%" />
-</colgroup>
-<thead valign="bottom">
-<tr><th class="head">Name</th>
-<th class="head">Where?</th>
-<th class="head">Description</th>
-</tr>
-</thead>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
 <tbody valign="top">
-<tr><td>id</td>
-<td>part of the url</td>
-<td>Folder ID</td>
+<tr class="field"><th class="field-name">id:</th><td class="field-body">Folder ID (string)</td>
 </tr>
 </tbody>
 </table>
-<dl class="docutils">
-<dt>Available methods:</dt>
-<dd><ul class="first last simple">
-<li>GET</li>
-<li>POST</li>
-</ul>
+<p>Example url:</p>
+<div class="highlight-python"><pre>/api/v2/folders/0FQHJakL/files</pre>
+</div>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>This interface is used to manage files in a folder. The GET method responses
+a list of all the files in a folder. With POST method the applications can
+upload a new file to this folder.</p>
+<p>This interface uses pagination.</p>
+</div></blockquote>
+</div>
+<div class="section" id="available-methods">
+<h2>Available methods<a class="headerlink" href="#available-methods" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul>
+<li><dl class="first docutils">
+<dt>GET</dt>
+<dd><p class="first last">Give back a list of files in a folder.</p>
 </dd>
-<dt>Description:</dt>
-<dd>Gives back a list of files in a folder.</dd>
 </dl>
-<p>Example GET request:</p>
+</li>
+<li><dl class="first docutils">
+<dt>POST</dt>
+<dd><p class="first last">Upload  new file</p>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="post-fields">
+<h2>POST fields<a class="headerlink" href="#post-fields" title="Permalink to this headline">¶</a></h2>
+<p>To upload a new file applications have to send 3 fields of the File object.</p>
+<p>Request Content type should be multipart/form-data.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">caption:</th><td class="field-body">Caption (string)</td>
+</tr>
+<tr class="field"><th class="field-name">filename:</th><td class="field-body">Filename (string)</td>
+</tr>
+<tr class="field"><th class="field-name">file:</th><td class="field-body">File (file)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="example-get-request">
+<h3>Example GET request<a class="headerlink" href="#example-get-request" title="Permalink to this headline">¶</a></h3>
+<p>GET response:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
     <span class="s">&quot;results&quot;</span><span class="p">:</span> <span class="p">[{</span>
         <span class="s">&quot;mimetype&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
@@ -95,9 +125,9 @@
         <span class="s">&quot;width&quot;</span><span class="p">:</span> <span class="mi">400</span><span class="p">,</span>
         <span class="s">&quot;uploaded_ago&quot;</span><span class="p">:</span> <span class="mi">313</span><span class="p">,</span>
         <span class="s">&quot;filesize&quot;</span><span class="p">:</span> <span class="mi">38184</span><span class="p">,</span>
-        <span class="s">&quot;url_rawfile&quot;</span><span class="p">:</span> <span class="s">&quot;http://i.min.us/i</span><span class="si">%s%s</span><span class="s">hvzcZLBsjyIF.jpeg&quot;</span><span class="p">,</span>
+        <span class="s">&quot;url_rawfile&quot;</span><span class="p">:</span> <span class="s">&quot;http://i.min.us/ihvzcZLBsjyIF.jpeg&quot;</span><span class="p">,</span>
         <span class="s">&quot;folder&quot;</span><span class="p">:</span> <span class="s">&quot;http://minus.com/api/v2/folders/0FQHJakL&quot;</span><span class="p">,</span>
-        <span class="s">&quot;url_thumbnail&quot;</span><span class="p">:</span> <span class="s">&quot;http://k.min.us/j</span><span class="si">%s%s</span><span class="s">hvzcZLBsjyIF.jpeg&quot;</span><span class="p">,</span>
+        <span class="s">&quot;url_thumbnail&quot;</span><span class="p">:</span> <span class="s">&quot;http://k.min.us/jhvzcZLBsjyIF.jpeg&quot;</span><span class="p">,</span>
         <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="s">&quot;hvzcZLBsjyIF&quot;</span>
     <span class="p">},</span> <span class="p">{</span>
         <span class="s">&quot;mimetype&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
@@ -110,9 +140,9 @@
         <span class="s">&quot;width&quot;</span><span class="p">:</span> <span class="mi">180</span><span class="p">,</span>
         <span class="s">&quot;uploaded_ago&quot;</span><span class="p">:</span> <span class="mi">533</span><span class="p">,</span>
         <span class="s">&quot;filesize&quot;</span><span class="p">:</span> <span class="mi">22302</span><span class="p">,</span>
-        <span class="s">&quot;url_rawfile&quot;</span><span class="p">:</span> <span class="s">&quot;http://i.min.us/i</span><span class="si">%s%s</span><span class="s">ZURP699t3rkE.jpg&quot;</span><span class="p">,</span>
+        <span class="s">&quot;url_rawfile&quot;</span><span class="p">:</span> <span class="s">&quot;http://i.min.us/iZURP699t3rkE.jpg&quot;</span><span class="p">,</span>
         <span class="s">&quot;folder&quot;</span><span class="p">:</span> <span class="s">&quot;http://minus.com/api/v2/folders/0FQHJakL&quot;</span><span class="p">,</span>
-        <span class="s">&quot;url_thumbnail&quot;</span><span class="p">:</span> <span class="s">&quot;http://k.min.us/j</span><span class="si">%s%s</span><span class="s">ZURP699t3rkE.jpg&quot;</span><span class="p">,</span>
+        <span class="s">&quot;url_thumbnail&quot;</span><span class="p">:</span> <span class="s">&quot;http://k.min.us/jZURP699t3rkE.jpg&quot;</span><span class="p">,</span>
         <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="s">&quot;ZURP699t3rkE&quot;</span>
     <span class="p">},</span> <span class="p">{</span>
         <span class="s">&quot;mimetype&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
@@ -125,9 +155,9 @@
         <span class="s">&quot;width&quot;</span><span class="p">:</span> <span class="mi">600</span><span class="p">,</span>
         <span class="s">&quot;uploaded_ago&quot;</span><span class="p">:</span> <span class="mi">534</span><span class="p">,</span>
         <span class="s">&quot;filesize&quot;</span><span class="p">:</span> <span class="mi">58677</span><span class="p">,</span>
-        <span class="s">&quot;url_rawfile&quot;</span><span class="p">:</span> <span class="s">&quot;http://i.min.us/i</span><span class="si">%s%s</span><span class="s">OO0hyzBL1IGk.jpg&quot;</span><span class="p">,</span>
+        <span class="s">&quot;url_rawfile&quot;</span><span class="p">:</span> <span class="s">&quot;http://i.min.us/iOO0hyzBL1IGk.jpg&quot;</span><span class="p">,</span>
         <span class="s">&quot;folder&quot;</span><span class="p">:</span> <span class="s">&quot;http://minus.com/api/v2/folders/0FQHJakL&quot;</span><span class="p">,</span>
-        <span class="s">&quot;url_thumbnail&quot;</span><span class="p">:</span> <span class="s">&quot;http://k.min.us/j</span><span class="si">%s%s</span><span class="s">OO0hyzBL1IGk.jpg&quot;</span><span class="p">,</span>
+        <span class="s">&quot;url_thumbnail&quot;</span><span class="p">:</span> <span class="s">&quot;http://k.min.us/jOO0hyzBL1IGk.jpg&quot;</span><span class="p">,</span>
         <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="s">&quot;OO0hyzBL1IGk&quot;</span>
     <span class="p">}],</span>
     <span class="s">&quot;page&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
@@ -140,6 +170,51 @@
 </pre></div>
 </div>
 </div>
+<div class="section" id="example-upload-new-file">
+<h3>Example Upload New File<a class="headerlink" href="#example-upload-new-file" title="Permalink to this headline">¶</a></h3>
+<p>Request:</p>
+<div class="highlight-python"><pre>POST /api/v2/folders/0FQHJakL/files?bearer_token=[token] HTTP/1.1
+Host: minus.com
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundaryxECY8varBqIXZW4f
+Accept-Charset: UTF-8,*;q=0.5
+
+------WebKitFormBoundaryAYAOHDWfizxZB8OE
+Content-Disposition: form-data; name="file"; filename="test.txt"
+Content-Type: text/plain
+
+test
+------WebKitFormBoundaryAYAOHDWfizxZB8OE
+Content-Disposition: form-data; name="filename"
+
+test.txt
+------WebKitFormBoundaryAYAOHDWfizxZB8OE
+Content-Disposition: form-data; name="caption"
+
+testfile
+------WebKitFormBoundaryAYAOHDWfizxZB8OE--</pre>
+</div>
+<p>Response:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+   <span class="s">&quot;mimetype&quot;</span><span class="p">:</span><span class="s">&quot;&quot;</span><span class="p">,</span>
+   <span class="s">&quot;uploaded&quot;</span><span class="p">:</span><span class="s">&quot;2011-09-12 05:39:13&quot;</span><span class="p">,</span>
+   <span class="s">&quot;name&quot;</span><span class="p">:</span><span class="s">&quot;test.txt&quot;</span><span class="p">,</span>
+   <span class="s">&quot;caption&quot;</span><span class="p">:</span><span class="s">&quot;testfile&quot;</span><span class="p">,</span>
+   <span class="s">&quot;url&quot;</span><span class="p">:</span><span class="s">&quot;http://minus.com/api/v2/files/qb5C02eXHATa&quot;</span><span class="p">,</span>
+   <span class="s">&quot;title&quot;</span><span class="p">:</span><span class="s">&quot;&quot;</span><span class="p">,</span>
+   <span class="s">&quot;height&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+   <span class="s">&quot;width&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+   <span class="s">&quot;uploaded_ago&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+   <span class="s">&quot;filesize&quot;</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span>
+   <span class="s">&quot;url_rawfile&quot;</span><span class="p">:</span><span class="s">&quot;http://i.min.us/iqb5C02eXHATa.txt&quot;</span><span class="p">,</span>
+   <span class="s">&quot;folder&quot;</span><span class="p">:</span><span class="s">&quot;http://minus.com/api/v2/folders/0FQHJakL&quot;</span><span class="p">,</span>
+   <span class="s">&quot;url_thumbnail&quot;</span><span class="p">:</span><span class="s">&quot;http://k.min.us/jqb5C02eXHATa.txt&quot;</span><span class="p">,</span>
+   <span class="s">&quot;id&quot;</span><span class="p">:</span><span class="s">&quot;qb5C02eXHATa&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
 
 
           </div>
@@ -147,6 +222,21 @@
       </div>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">File list in a Folder</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#available-methods">Available methods</a></li>
+<li><a class="reference internal" href="#post-fields">POST fields</a></li>
+<li><a class="reference internal" href="#examples">Examples</a><ul>
+<li><a class="reference internal" href="#example-get-request">Example GET request</a></li>
+<li><a class="reference internal" href="#example-upload-new-file">Example Upload New File</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
   <h4>Previous topic</h4>
   <p class="topless"><a href="get_file.html"
                         title="previous chapter">File</a></p>

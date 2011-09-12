@@ -52,29 +52,27 @@
   <div class="section" id="user-s-folder-list">
 <span id="get-user-folders"></span><h1>User&#8217;s folder list<a class="headerlink" href="#user-s-folder-list" title="Permalink to this headline">¶</a></h1>
 <p>URL: <tt class="docutils literal"><span class="pre">/api/v2/users/[slug]/folders</span></tt></p>
-<p>Attributes:</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="17%" />
-<col width="47%" />
-<col width="36%" />
-</colgroup>
-<thead valign="bottom">
-<tr><th class="head">Name</th>
-<th class="head">Where?</th>
-<th class="head">Description</th>
-</tr>
-</thead>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
 <tbody valign="top">
-<tr><td>slug</td>
-<td>part of the url</td>
-<td>User&#8217;s slug</td>
+<tr class="field"><th class="field-name">slug:</th><td class="field-body">User&#8217;s slug</td>
 </tr>
 </tbody>
 </table>
-<dl class="docutils">
-<dt>Available methods:</dt>
-<dd><ul class="first last">
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>This interface is used to manage folders of a user. The GET method responses
+a list of user&#8217;s folders. With POST method applications can create a new
+folder.</p>
+<p>This interface uses pagination.</p>
+</div></blockquote>
+</div>
+<div class="section" id="available-methods">
+<h2>Available methods<a class="headerlink" href="#available-methods" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul>
 <li><dl class="first docutils">
 <dt>GET</dt>
 <dd><p class="first last">Give back a list of folders belonging to a user.</p>
@@ -88,9 +86,26 @@
 </dl>
 </li>
 </ul>
-</dd>
-</dl>
-<p>Example GET response:</p>
+</div></blockquote>
+</div>
+<div class="section" id="post-fields">
+<h2>POST fields<a class="headerlink" href="#post-fields" title="Permalink to this headline">¶</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">name:</th><td class="field-body">Folder Name (string)</td>
+</tr>
+<tr class="field"><th class="field-name">is_public:</th><td class="field-body">Public flag (boolean)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="get-folder-list">
+<h3>Get folder list<a class="headerlink" href="#get-folder-list" title="Permalink to this headline">¶</a></h3>
+<p>Response:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
     <span class="s">&quot;results&quot;</span><span class="p">:</span> <span class="p">[{</span>
         <span class="s">&quot;files&quot;</span><span class="p">:</span> <span class="s">&quot;http://minus.com/api/v2/folders/0FQHJakL/files&quot;</span><span class="p">,</span>
@@ -114,6 +129,34 @@
 </pre></div>
 </div>
 </div>
+<div class="section" id="create-new-folder">
+<h3>Create new folder<a class="headerlink" href="#create-new-folder" title="Permalink to this headline">¶</a></h3>
+<p>Request:</p>
+<div class="highlight-python"><pre>POST /api/v2/users/api_examples/folders?bearer_token=5e8e90c14d1c91cc5e50 HTTP/1.1
+Host: minus.com
+Content-Type: application/x-www-form-urlencoded; charset=UTF-8
+Accept-Charset: UTF-8,*;q=0.5
+
+name=test&amp;is_public=true</pre>
+</div>
+<p>Response:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;files&quot;</span><span class="p">:</span> <span class="s">&quot;http://minus.com/api/v2/folders/tflS3O6f/files&quot;</span><span class="p">,</span>
+    <span class="s">&quot;view_count&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s">&quot;date_last_updated&quot;</span><span class="p">:</span> <span class="s">&quot;2011-09-12 06:51:12&quot;</span><span class="p">,</span>
+    <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;test&quot;</span><span class="p">,</span>
+    <span class="s">&quot;creator&quot;</span><span class="p">:</span> <span class="s">&quot;http://minus.com/api/v2/users/api_examples&quot;</span><span class="p">,</span>
+    <span class="s">&quot;url&quot;</span><span class="p">:</span> <span class="s">&quot;http://minus.com/api/v2/folders/tflS3O6f&quot;</span><span class="p">,</span>
+    <span class="s">&quot;thumbnail_url&quot;</span><span class="p">:</span> <span class="s">&quot;//k.minus.com/k&quot;</span><span class="p">,</span>
+    <span class="s">&quot;file_count&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s">&quot;is_public&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="s">&quot;tflS3O6f&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
 
 
           </div>
@@ -121,6 +164,21 @@
       </div>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">User&#8217;s folder list</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#available-methods">Available methods</a></li>
+<li><a class="reference internal" href="#post-fields">POST fields</a></li>
+<li><a class="reference internal" href="#examples">Examples</a><ul>
+<li><a class="reference internal" href="#get-folder-list">Get folder list</a></li>
+<li><a class="reference internal" href="#create-new-folder">Create new folder</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
   <h4>Previous topic</h4>
   <p class="topless"><a href="get_folder_files.html"
                         title="previous chapter">File list in a Folder</a></p>
