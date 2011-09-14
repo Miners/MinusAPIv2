@@ -24,7 +24,7 @@
     <link rel="top" title="Minus API v2.10 documentation" href="../index.html" />
     <link rel="up" title="Minus.com API v2 Reference" href="index.html" />
     <link rel="next" title="oAuth 2.0 tutorial" href="auth_tutorial.html" />
-    <link rel="prev" title="User’s folder list" href="get_user_folders.html" /> 
+    <link rel="prev" title="Following list" href="list_following.html" /> 
   </head>
   <body>
     <div class="related">
@@ -37,7 +37,7 @@
           <a href="auth_tutorial.html" title="oAuth 2.0 tutorial"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="get_user_folders.html" title="User’s folder list"
+          <a href="list_following.html" title="Following list"
              accesskey="P">previous</a> |</li>
         <li><a href="../index.html">Minus API v2.10 documentation</a> &raquo;</li>
           <li><a href="index.html" accesskey="U">Minus.com API v2 Reference</a> &raquo;</li> 
@@ -84,6 +84,29 @@ mechanism for defining additional types.</p>
 <h2>Client_id and Client_secret<a class="headerlink" href="#client-id-and-client-secret" title="Permalink to this headline">¶</a></h2>
 <p>Client applications identifies themself with a client_id client_secret pair.</p>
 </div>
+<div class="section" id="scopes">
+<h2>Scopes<a class="headerlink" href="#scopes" title="Permalink to this headline">¶</a></h2>
+<p>Scopes are used to restrict applications by the users.</p>
+<p>Available scopes:</p>
+<blockquote>
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">read_public:</th><td class="field-body">Read public files</td>
+</tr>
+<tr class="field"><th class="field-name">read_all:</th><td class="field-body">Read all folders and files</td>
+</tr>
+<tr class="field"><th class="field-name">upload_new:</th><td class="field-body">Upload new files and folders</td>
+</tr>
+<tr class="field"><th class="field-name">modify_all:</th><td class="field-body">Delete/Modify all existing files and folders</td>
+</tr>
+<tr class="field"><th class="field-name">modify_user:</th><td class="field-body">Modify user preferences</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</div>
 </div>
 
 
@@ -99,13 +122,14 @@ mechanism for defining additional types.</p>
 <li><a class="reference internal" href="#refresh-token">Refresh Token</a></li>
 <li><a class="reference internal" href="#authorization-grant">Authorization Grant</a></li>
 <li><a class="reference internal" href="#client-id-and-client-secret">Client_id and Client_secret</a></li>
+<li><a class="reference internal" href="#scopes">Scopes</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="get_user_folders.html"
-                        title="previous chapter">User&#8217;s folder list</a></p>
+  <p class="topless"><a href="list_following.html"
+                        title="previous chapter">Following list</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="auth_tutorial.html"
                         title="next chapter">oAuth 2.0 tutorial</a></p>
@@ -141,7 +165,7 @@ mechanism for defining additional types.</p>
           <a href="auth_tutorial.html" title="oAuth 2.0 tutorial"
              >next</a> |</li>
         <li class="right" >
-          <a href="get_user_folders.html" title="User’s folder list"
+          <a href="list_following.html" title="Following list"
              >previous</a> |</li>
         <li><a href="../index.html">Minus API v2.10 documentation</a> &raquo;</li>
           <li><a href="index.html" >Minus.com API v2 Reference</a> &raquo;</li> 

@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>File &mdash; Minus API v2.10 documentation</title>
+    <title>Follower list &mdash; Minus API v2.10 documentation</title>
     <link rel="stylesheet" href="../static/nature.css" type="text/css" />
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -23,8 +23,8 @@
     <script type="text/javascript" src="../static/doctools.js"></script>
     <link rel="top" title="Minus API v2.10 documentation" href="../index.html" />
     <link rel="up" title="Minus.com API v2 Reference" href="index.html" />
-    <link rel="next" title="File list in a Folder" href="list_folder_files.html" />
-    <link rel="prev" title="Folder" href="get_folder.html" /> 
+    <link rel="next" title="Following list" href="list_following.html" />
+    <link rel="prev" title="User’s folder list" href="list_user_folders.html" /> 
   </head>
   <body>
     <div class="related">
@@ -34,10 +34,10 @@
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="list_folder_files.html" title="File list in a Folder"
+          <a href="list_following.html" title="Following list"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="get_folder.html" title="Folder"
+          <a href="list_user_folders.html" title="User’s folder list"
              accesskey="P">previous</a> |</li>
         <li><a href="../index.html">Minus API v2.10 documentation</a> &raquo;</li>
           <li><a href="index.html" accesskey="U">Minus.com API v2 Reference</a> &raquo;</li> 
@@ -49,39 +49,43 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="file">
-<span id="get-file"></span><h1>File<a class="headerlink" href="#file" title="Permalink to this headline">¶</a></h1>
-<p>URL: <tt class="docutils literal"><span class="pre">/api/v2/files/[id]</span></tt></p>
-<p>Attributes:</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="17%" />
-<col width="47%" />
-<col width="36%" />
-</colgroup>
-<thead valign="bottom">
-<tr><th class="head">Name</th>
-<th class="head">Where?</th>
-<th class="head">Description</th>
-</tr>
-</thead>
+  <div class="section" id="follower-list">
+<span id="list-followers"></span><h1>Follower list<a class="headerlink" href="#follower-list" title="Permalink to this headline">¶</a></h1>
+<p>URL: <tt class="docutils literal"><span class="pre">/api/v2/users/[slug]/followers</span></tt></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
 <tbody valign="top">
-<tr><td>id</td>
-<td>part of the url</td>
-<td>File ID</td>
+<tr class="field"><th class="field-name">slug:</th><td class="field-body">User&#8217;s slug</td>
 </tr>
 </tbody>
 </table>
-<dl class="docutils">
-<dt>Available methods:</dt>
-<dd><ul class="first last simple">
-<li>GET</li>
-<li>DELETE</li>
-</ul>
+<p>Example link:</p>
+<div class="highlight-python"><pre>/api/v2/users/api_examples/followers</pre>
+</div>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div>This interface lists the follower users of a user. It gives back a list of
+User objects.</div></blockquote>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This list uses pagination.</p>
+</div>
+</div>
+<div class="section" id="available-methods">
+<h2>Available methods<a class="headerlink" href="#available-methods" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul>
+<li><dl class="first docutils">
+<dt>GET</dt>
+<dd><p class="first last">Follower list</p>
 </dd>
-<dt>Description:</dt>
-<dd>Gives back the File object of the given ID.</dd>
 </dl>
+</li>
+</ul>
+</div></blockquote>
+</div>
 </div>
 
 
@@ -90,15 +94,24 @@
       </div>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Follower list</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#available-methods">Available methods</a></li>
+</ul>
+</li>
+</ul>
+
   <h4>Previous topic</h4>
-  <p class="topless"><a href="get_folder.html"
-                        title="previous chapter">Folder</a></p>
+  <p class="topless"><a href="list_user_folders.html"
+                        title="previous chapter">User&#8217;s folder list</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="list_folder_files.html"
-                        title="next chapter">File list in a Folder</a></p>
+  <p class="topless"><a href="list_following.html"
+                        title="next chapter">Following list</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
-    <li><a href="../sources/v2/get_file.txt"
+    <li><a href="../sources/v2/list_followers.txt"
            rel="nofollow">Show Source</a></li>
   </ul>
 <div id="searchbox" style="display: none">
@@ -125,10 +138,10 @@
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="list_folder_files.html" title="File list in a Folder"
+          <a href="list_following.html" title="Following list"
              >next</a> |</li>
         <li class="right" >
-          <a href="get_folder.html" title="Folder"
+          <a href="list_user_folders.html" title="User’s folder list"
              >previous</a> |</li>
         <li><a href="../index.html">Minus API v2.10 documentation</a> &raquo;</li>
           <li><a href="index.html" >Minus.com API v2 Reference</a> &raquo;</li> 

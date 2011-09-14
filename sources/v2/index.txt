@@ -74,8 +74,10 @@ List interfaces
 .. toctree::
     :maxdepth: 1
 
-    get_folder_files
-    get_user_folders
+    list_folder_files
+    list_user_folders
+    list_followers
+    list_following
 
 Authentication
 --------------

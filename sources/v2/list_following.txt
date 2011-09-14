@@ -1,0 +1,40 @@
+.. _list_following:
+
+Following list
+==============
+
+
+URL: ``/api/v2/users/[slug]/following``
+
+:slug: User's slug
+
+Example link::
+    
+    /api/v2/users/api_examples/following
+
+Description
+-----------
+    
+    This interface lists the users are followed by the given (slug) user. It 
+    gives back a list of User objects.
+    Using POST method user can follow new users.
+
+
+.. note::
+   This list uses pagination.
+
+Available methods
+-----------------
+
+ * GET
+    Follower list
+ * POST
+    Add new followee to list
+
+POST fields
+-----------
+
+This method only accepts one ``slug`` field as a parameter. The slug value is
+the target user (followee).
+
+:slug: Target user's slug

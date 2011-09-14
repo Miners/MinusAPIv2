@@ -40,3 +40,17 @@ Client_id and Client_secret
 """""""""""""""""""""""""""
 
 Client applications identifies themself with a client_id client_secret pair.
+
+Scopes
+""""""
+
+Scopes are used to restrict applications by the users.
+
+Available scopes:
+
+    :read_public: Read public files
+    :read_all: Read all folders and files
+    :upload_new: Upload new files and folders
+    :modify_all: Delete/Modify all existing files and folders
+    :modify_user: Modify user preferences
+
