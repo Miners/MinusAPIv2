@@ -90,13 +90,13 @@ access_token in 3 places of the request:
 
 Example API GET request using Header Authorization::
 
-    GET /api/v2/active_user HTTP/1.1
+    GET /api/v2/activeuser HTTP/1.1
     Host: minus.com
     Authorization: Bearer dc19a1ea88
 
 Example API GET request using GET parameter as access_token::
 
-    POST /api/v2/active_user?bearer_token=dc19a1ea88 HTTP/1.1
+    POST /api/v2/activeuser?bearer_token=dc19a1ea88 HTTP/1.1
     Host: minus.com
 
     

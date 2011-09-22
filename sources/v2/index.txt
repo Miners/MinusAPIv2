@@ -112,3 +112,9 @@ Where can you find the API?
 .. warning::
     Using https connection is mandatory. We will disable connections without SSL.
 
+CHANGELOG
+---------
+
+ * 2011-09-12 Following & Followers lists
+ * 2011-09-06 Documentation about oAuth
+ * 2011-08-23 Basic documentation for API

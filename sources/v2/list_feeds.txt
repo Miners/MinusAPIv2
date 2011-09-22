@@ -1,0 +1,21 @@
+.. _list_feeds:
+
+History, Feed, Mine list
+========================
+
+History list
+------------
+
+URL: /api/v2/activeuser/history
+
+
+Feed list
+---------
+
+URL: /api/v2/activeuser/feed
+
+Mine list
+---------
+
+URL: /api/v2/activeuser/mine
+
