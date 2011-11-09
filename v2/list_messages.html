@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>User’s folder list &mdash; Minus API v2.10 documentation</title>
+    <title>Message list &mdash; Minus API v2.10 documentation</title>
     <link rel="stylesheet" href="../static/nature.css" type="text/css" />
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -23,8 +23,8 @@
     <script type="text/javascript" src="../static/doctools.js"></script>
     <link rel="top" title="Minus API v2.10 documentation" href="../index.html" />
     <link rel="up" title="Minus.com API v2 Reference" href="index.html" />
-    <link rel="next" title="oAuth 2.0 authentication overview" href="auth_overview.html" />
-    <link rel="prev" title="File list in a Folder" href="get_folder_files.html" /> 
+    <link rel="next" title="Feeds" href="feeds.html" />
+    <link rel="prev" title="Following list" href="list_following.html" /> 
   </head>
   <body>
     <div class="related">
@@ -34,10 +34,10 @@
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="auth_overview.html" title="oAuth 2.0 authentication overview"
+          <a href="feeds.html" title="Feeds"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="get_folder_files.html" title="File list in a Folder"
+          <a href="list_following.html" title="Following list"
              accesskey="P">previous</a> |</li>
         <li><a href="../index.html">Minus API v2.10 documentation</a> &raquo;</li>
           <li><a href="index.html" accesskey="U">Minus.com API v2 Reference</a> &raquo;</li> 
@@ -49,23 +49,25 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="user-s-folder-list">
-<span id="get-user-folders"></span><h1>User&#8217;s folder list<a class="headerlink" href="#user-s-folder-list" title="Permalink to this headline">¶</a></h1>
-<p>URL: <tt class="docutils literal"><span class="pre">/api/v2/users/[slug]/folders</span></tt></p>
+  <div class="section" id="message-list">
+<span id="list-messages"></span><h1>Message list<a class="headerlink" href="#message-list" title="Permalink to this headline">¶</a></h1>
+<p>URL: <tt class="docutils literal"><span class="pre">/api/v2/activeuser/messages/[slug]</span></tt></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field"><th class="field-name">slug:</th><td class="field-body">User&#8217;s slug</td>
+<tr class="field"><th class="field-name">slug:</th><td class="field-body">User&#8217;s slug (optional)</td>
 </tr>
 </tbody>
 </table>
 <div class="section" id="description">
 <h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
 <blockquote>
-<div><p>This interface is used to manage folders of a user. The GET method responses
-a list of user&#8217;s folders. With POST method applications can create a new
-folder.</p>
+<div><p>Minus users can send messages to each other. One message is sent between 2
+users. One participant is the sender and the other is the target. Message
+also has a body field for the content of the message. Messages are sendable
+through this interface using POST method.</p>
+<p>None of the messages is deletable.</p>
 <p>This interface uses pagination.</p>
 </div></blockquote>
 </div>
@@ -75,13 +77,14 @@ folder.</p>
 <div><ul>
 <li><dl class="first docutils">
 <dt>GET</dt>
-<dd><p class="first last">Give back a list of folders belonging to a user.</p>
+<dd><p class="first last">Get message thread between users (slug is given) or get the last messages
+(without slug).</p>
 </dd>
 </dl>
 </li>
 <li><dl class="first docutils">
 <dt>POST</dt>
-<dd><p class="first last">Create new folder</p>
+<dd><p class="first last">Send message (slug is mandatory as GET parameter)</p>
 </dd>
 </dl>
 </li>
@@ -94,34 +97,32 @@ folder.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field"><th class="field-name">name:</th><td class="field-body">Folder Name (string)</td>
-</tr>
-<tr class="field"><th class="field-name">is_public:</th><td class="field-body">Public flag (boolean)</td>
+<tr class="field"><th class="field-name">body:</th><td class="field-body">Content (string)</td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="examples">
 <h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="get-folder-list">
-<h3>Get folder list<a class="headerlink" href="#get-folder-list" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="get-message-thread-between-users">
+<h3>Get message thread between users<a class="headerlink" href="#get-message-thread-between-users" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Request::</dt>
+<dd>GET /api/v2/activeuser/messages/api_examples?bearer_token=[token]</dd>
+</dl>
 <p>Response:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
     <span class="s">&quot;results&quot;</span><span class="p">:</span> <span class="p">[{</span>
-        <span class="s">&quot;files&quot;</span><span class="p">:</span> <span class="s">&quot;http://minus.com/api/v2/folders/0FQHJakL/files&quot;</span><span class="p">,</span>
-        <span class="s">&quot;view_count&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="s">&quot;date_last_updated&quot;</span><span class="p">:</span> <span class="s">&quot;2011-09-09 14:29:18&quot;</span><span class="p">,</span>
-        <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;Test gallery&quot;</span><span class="p">,</span>
-        <span class="s">&quot;creator&quot;</span><span class="p">:</span> <span class="s">&quot;http://minus.com/api/v2/users/api_examples&quot;</span><span class="p">,</span>
-        <span class="s">&quot;url&quot;</span><span class="p">:</span> <span class="s">&quot;http://minus.com/api/v2/folders/0FQHJakL&quot;</span><span class="p">,</span>
-        <span class="s">&quot;thumbnail_url&quot;</span><span class="p">:</span> <span class="s">&quot;//k.minus.com/kOO0hyzBL1IGk.jpg&quot;</span><span class="p">,</span>
-        <span class="s">&quot;file_count&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
-        <span class="s">&quot;is_public&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
-        <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="s">&quot;0FQHJakL&quot;</span>
+        <span class="s">&quot;body&quot;</span><span class="p">:</span> <span class="s">&quot;Hi, how are you doing?&quot;</span><span class="p">,</span>
+        <span class="s">&quot;read&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+        <span class="s">&quot;target&quot;</span><span class="p">:</span> <span class="s">&quot;http://minus.com/api/v2/users/api_examples&quot;</span><span class="p">,</span>
+        <span class="s">&quot;sender&quot;</span><span class="p">:</span> <span class="s">&quot;http://minus.com/api/v2/users/test&quot;</span><span class="p">,</span>
+        <span class="s">&quot;target&quot;</span><span class="p">:</span> <span class="s">&quot;http://minus.com/api/v2/activeuser/messages/api_examples&quot;</span><span class="p">,</span>
+        <span class="s">&quot;created&quot;</span><span class="p">:</span> <span class="s">&quot;2011-11-08 19:11:11&quot;</span>
     <span class="p">}],</span>
     <span class="s">&quot;page&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
     <span class="s">&quot;next&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
-    <span class="s">&quot;per_page&quot;</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span>
+    <span class="s">&quot;per_page&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
     <span class="s">&quot;total&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
     <span class="s">&quot;pages&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
     <span class="s">&quot;previous&quot;</span><span class="p">:</span> <span class="n">null</span>
@@ -129,28 +130,23 @@ folder.</p>
 </pre></div>
 </div>
 </div>
-<div class="section" id="create-new-folder">
-<h3>Create new folder<a class="headerlink" href="#create-new-folder" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="send-message">
+<h3>Send message<a class="headerlink" href="#send-message" title="Permalink to this headline">¶</a></h3>
 <p>Request:</p>
-<div class="highlight-python"><pre>POST /api/v2/users/api_examples/folders?bearer_token=5e8e90c14d1c91cc5e50 HTTP/1.1
+<div class="highlight-python"><pre>POST /api/v2/activeuser/messages/api_examples?bearer_token=[token] HTTP/1.1
 Host: minus.com
 Content-Type: application/x-www-form-urlencoded; charset=UTF-8
 Accept-Charset: UTF-8,*;q=0.5
 
-name=test&amp;is_public=true</pre>
+body=hey%2C%20what's%20up%3F</pre>
 </div>
 <p>Response:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
-    <span class="s">&quot;files&quot;</span><span class="p">:</span> <span class="s">&quot;http://minus.com/api/v2/folders/tflS3O6f/files&quot;</span><span class="p">,</span>
-    <span class="s">&quot;view_count&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="s">&quot;date_last_updated&quot;</span><span class="p">:</span> <span class="s">&quot;2011-09-12 06:51:12&quot;</span><span class="p">,</span>
-    <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;test&quot;</span><span class="p">,</span>
-    <span class="s">&quot;creator&quot;</span><span class="p">:</span> <span class="s">&quot;http://minus.com/api/v2/users/api_examples&quot;</span><span class="p">,</span>
-    <span class="s">&quot;url&quot;</span><span class="p">:</span> <span class="s">&quot;http://minus.com/api/v2/folders/tflS3O6f&quot;</span><span class="p">,</span>
-    <span class="s">&quot;thumbnail_url&quot;</span><span class="p">:</span> <span class="s">&quot;//k.minus.com/k&quot;</span><span class="p">,</span>
-    <span class="s">&quot;file_count&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="s">&quot;is_public&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
-    <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="s">&quot;tflS3O6f&quot;</span>
+    <span class="s">&quot;body&quot;</span><span class="p">:</span> <span class="s">&quot;hey, what&#39;s up?&quot;</span><span class="p">,</span>
+    <span class="s">&quot;read&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s">&quot;target&quot;</span><span class="p">:</span> <span class="s">&quot;http://minus.com/api/v2/users/api_examples&quot;</span><span class="p">,</span>
+    <span class="s">&quot;sender&quot;</span><span class="p">:</span> <span class="s">&quot;http://minus.com/api/v2/users/macat&quot;</span><span class="p">,</span>
+    <span class="s">&quot;created&quot;</span><span class="p">:</span> <span class="s">&quot;2011-11-08 19:23:25&quot;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -166,13 +162,13 @@ name=test&amp;is_public=true</pre>
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">User&#8217;s folder list</a><ul>
+<li><a class="reference internal" href="#">Message list</a><ul>
 <li><a class="reference internal" href="#description">Description</a></li>
 <li><a class="reference internal" href="#available-methods">Available methods</a></li>
 <li><a class="reference internal" href="#post-fields">POST fields</a></li>
 <li><a class="reference internal" href="#examples">Examples</a><ul>
-<li><a class="reference internal" href="#get-folder-list">Get folder list</a></li>
-<li><a class="reference internal" href="#create-new-folder">Create new folder</a></li>
+<li><a class="reference internal" href="#get-message-thread-between-users">Get message thread between users</a></li>
+<li><a class="reference internal" href="#send-message">Send message</a></li>
 </ul>
 </li>
 </ul>
@@ -180,14 +176,14 @@ name=test&amp;is_public=true</pre>
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="get_folder_files.html"
-                        title="previous chapter">File list in a Folder</a></p>
+  <p class="topless"><a href="list_following.html"
+                        title="previous chapter">Following list</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="auth_overview.html"
-                        title="next chapter">oAuth 2.0 authentication overview</a></p>
+  <p class="topless"><a href="feeds.html"
+                        title="next chapter">Feeds</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
-    <li><a href="../sources/v2/get_user_folders.txt"
+    <li><a href="../sources/v2/list_messages.txt"
            rel="nofollow">Show Source</a></li>
   </ul>
 <div id="searchbox" style="display: none">
@@ -214,10 +210,10 @@ name=test&amp;is_public=true</pre>
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="auth_overview.html" title="oAuth 2.0 authentication overview"
+          <a href="feeds.html" title="Feeds"
              >next</a> |</li>
         <li class="right" >
-          <a href="get_folder_files.html" title="File list in a Folder"
+          <a href="list_following.html" title="Following list"
              >previous</a> |</li>
         <li><a href="../index.html">Minus API v2.10 documentation</a> &raquo;</li>
           <li><a href="index.html" >Minus.com API v2 Reference</a> &raquo;</li> 

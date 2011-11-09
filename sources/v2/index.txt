@@ -13,11 +13,9 @@ API objects
 Through the API the developers can read/edit/create/delete the main 3 objects  of the Minus System.
 
 .. toctree::
-    :maxdepth: 1
-    
-    user
-    folder
-    file
+    :maxdepth: 2
+   
+    objects
 
 Interfaces
 ----------
@@ -78,6 +76,15 @@ List interfaces
     list_user_folders
     list_followers
     list_following
+    list_messages
+
+Folder feed lists:
+
+.. toctree::
+    :maxdepth: 2
+    
+    feeds
+    
 
 Authentication
 --------------
@@ -112,9 +119,3 @@ Where can you find the API?
 .. warning::
     Using https connection is mandatory. We will disable connections without SSL.
 
-CHANGELOG
----------
-
- * 2011-09-12 Following & Followers lists
- * 2011-09-06 Documentation about oAuth
- * 2011-08-23 Basic documentation for API

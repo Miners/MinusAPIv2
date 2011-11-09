@@ -60,7 +60,7 @@ This flow requires the end-users to type in their password. However the
 applications should not save the passwords. The tutorial will explain it more.</p>
 <div class="section" id="getting-tokens-using-user-credentials">
 <h3>Getting tokens using user credentials<a class="headerlink" href="#getting-tokens-using-user-credentials" title="Permalink to this headline">¶</a></h3>
-<p>Applications must require the tokens using the /oauth/token url.</p>
+<p>Applications must obtain the tokens using the /oauth/token url.</p>
 <p>Request method can be either GET or POST.</p>
 <p>The client_id and client_secret can be in the header authentication.</p>
 <p>Example token request (POST):</p>
@@ -68,7 +68,12 @@ applications should not save the passwords. The tutorial will explain it more.</
 Host: minus.com
 Content-Type: application/x-www-form-urlencoded; charset=UTF-8
 
-grant_type=password&amp;client_id=8c1930fddec2e70a9a6791c1fb2b82&amp;client_secret=e80eae9fe98d431f5e642714695d7c&amp;scope=read_public&amp;username=example&amp;password=example</pre>
+grant_type=password&amp;client_id=8c1930fddec2e70a9a6791c1fb2b82&amp;client_secret=e80eae9fe98d431f5e642714695d7c&amp;scope=read_public+read_all+upload_new&amp;username=example&amp;password=example</pre>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This request obtains access token with <tt class="docutils literal"><span class="pre">read_public</span></tt>, <tt class="docutils literal"><span class="pre">read_all</span></tt> and
+<tt class="docutils literal"><span class="pre">upload_new</span></tt> scope.</p>
 </div>
 <p>Example token request (GET):</p>
 <div class="highlight-python"><pre>GET /oauth/token?grant_type=password&amp;client_id=8c1930fddec2e70a9a6791c1fb2b82&amp;client_secret=e80eae9fe98d431f5e642714695d7c&amp;scope=read_public&amp;username=example&amp;password=example HTTP/1.1
@@ -85,8 +90,24 @@ Content-Type: application/x-www-form-urlencoded; charset=UTF-8</pre>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>After successful authentication process applications must drop the user password.
-They can require always new access_token using refresh_token. Therefore the
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">access_token:</th><td class="field-body">application should use this token to reach Minus API</td>
+</tr>
+<tr class="field"><th class="field-name">token_type:</th><td class="field-body">at this moment Minus only supports bearer token</td>
+</tr>
+<tr class="field"><th class="field-name">expire_in:</th><td class="field-body">expire time in seconds (default is 1 hour)</td>
+</tr>
+<tr class="field"><th class="field-name">refresh_token:</th><td class="field-body">with this token application can obtain new <cite>acces_token</cite></td>
+</tr>
+<tr class="field"><th class="field-name">scope:</th><td class="field-body">accepted scope</td>
+</tr>
+</tbody>
+</table>
+<p>Once the authentication is successful, applications must drop user password.
+They can request always new access_token using refresh_token. Therefore the
 refresh_token is saveable.</p>
 </div>
 <div class="section" id="refreshing-an-access-token">

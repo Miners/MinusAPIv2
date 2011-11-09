@@ -1,0 +1,86 @@
+.. _list_messages:
+
+Message list
+============
+
+URL: ``/api/v2/activeuser/messages/[slug]``
+
+:slug: User's slug (optional)
+
+Description
+-----------
+
+    Minus users can send messages to each other. One message is sent between 2
+    users. One participant is the sender and the other is the target. Message 
+    also has a body field for the content of the message. Messages are sendable 
+    through this interface using POST method. 
+
+    None of the messages is deletable.
+
+    This interface uses pagination.
+
+
+Available methods
+-----------------
+ * GET
+    Get message thread between users (slug is given) or get the last messages
+    (without slug).
+ * POST
+    Send message (slug is mandatory as GET parameter)
+
+POST fields
+-----------
+
+:body: Content (string)
+
+Examples
+--------
+
+Get message thread between users
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Request::
+    GET /api/v2/activeuser/messages/api_examples?bearer_token=[token]
+
+Response::
+
+    {
+        "results": [{
+            "body": "Hi, how are you doing?",
+            "read": false,
+            "target": "http://minus.com/api/v2/users/api_examples",
+            "sender": "http://minus.com/api/v2/users/test",
+            "target": "http://minus.com/api/v2/activeuser/messages/api_examples",
+            "created": "2011-11-08 19:11:11"
+        }],
+        "page": 1,
+        "next": null,
+        "per_page": 20,
+        "total": 1,
+        "pages": 1,
+        "previous": null
+    }
+
+
+Send message
+^^^^^^^^^^^^
+
+Request::
+
+    POST /api/v2/activeuser/messages/api_examples?bearer_token=[token] HTTP/1.1
+    Host: minus.com
+    Content-Type: application/x-www-form-urlencoded; charset=UTF-8
+    Accept-Charset: UTF-8,*;q=0.5
+    
+    body=hey%2C%20what's%20up%3F
+
+
+Response::    
+
+    {
+        "body": "hey, what's up?",
+        "read": false,
+        "target": "http://minus.com/api/v2/users/api_examples",
+        "sender": "http://minus.com/api/v2/users/macat",
+        "created": "2011-11-08 19:23:25"
+    }

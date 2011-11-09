@@ -22,7 +22,7 @@
     <script type="text/javascript" src="../static/underscore.js"></script>
     <script type="text/javascript" src="../static/doctools.js"></script>
     <link rel="top" title="Minus API v2.10 documentation" href="../index.html" />
-    <link rel="next" title="User Object" href="user.html" />
+    <link rel="next" title="API Objects" href="objects.html" />
     <link rel="prev" title="Welcome to Minus API’s documentation!" href="../index.html" /> 
   </head>
   <body>
@@ -33,7 +33,7 @@
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="user.html" title="User Object"
+          <a href="objects.html" title="API Objects"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="../index.html" title="Welcome to Minus API’s documentation!"
@@ -56,9 +56,14 @@
 <p>Through the API the developers can read/edit/create/delete the main 3 objects  of the Minus System.</p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="user.html">User Object</a></li>
-<li class="toctree-l1"><a class="reference internal" href="folder.html">Folder object</a></li>
-<li class="toctree-l1"><a class="reference internal" href="file.html">File Object</a></li>
+<li class="toctree-l1"><a class="reference internal" href="objects.html">API Objects</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="objects.html#file">File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objects.html#folder">Folder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objects.html#extended-folder">Extended Folder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objects.html#user-object">User Object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objects.html#message-object">Message object</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -142,6 +147,18 @@
 <li class="toctree-l1"><a class="reference internal" href="list_user_folders.html">User&#8217;s folder list</a></li>
 <li class="toctree-l1"><a class="reference internal" href="list_followers.html">Follower list</a></li>
 <li class="toctree-l1"><a class="reference internal" href="list_following.html">Following list</a></li>
+<li class="toctree-l1"><a class="reference internal" href="list_messages.html">Message list</a></li>
+</ul>
+</div>
+<p>Folder feed lists:</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="feeds.html">Feeds</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="feeds.html#favorited-folders-feed">Favorited Folders Feed</a></li>
+<li class="toctree-l2"><a class="reference internal" href="feeds.html#feed">Feed</a></li>
+<li class="toctree-l2"><a class="reference internal" href="feeds.html#user-s-mine-feed">User&#8217;s mine feed</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -178,16 +195,6 @@ side.</p>
 <p class="last">Using https connection is mandatory. We will disable connections without SSL.</p>
 </div>
 </div>
-<div class="section" id="changelog">
-<h2>CHANGELOG<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h2>
-<blockquote>
-<div><ul class="simple">
-<li>2011-09-12 Following &amp; Followers lists</li>
-<li>2011-09-06 Documentation about oAuth</li>
-<li>2011-08-23 Basic documentation for API</li>
-</ul>
-</div></blockquote>
-</div>
 </div>
 
 
@@ -218,7 +225,6 @@ side.</p>
 </ul>
 </li>
 <li><a class="reference internal" href="#where-can-you-find-the-api">Where can you find the API?</a></li>
-<li><a class="reference internal" href="#changelog">CHANGELOG</a></li>
 </ul>
 </li>
 </ul>
@@ -227,8 +233,8 @@ side.</p>
   <p class="topless"><a href="../index.html"
                         title="previous chapter">Welcome to Minus API&#8217;s documentation!</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="user.html"
-                        title="next chapter">User Object</a></p>
+  <p class="topless"><a href="objects.html"
+                        title="next chapter">API Objects</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="../sources/v2/index.txt"
@@ -258,7 +264,7 @@ side.</p>
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="user.html" title="User Object"
+          <a href="objects.html" title="API Objects"
              >next</a> |</li>
         <li class="right" >
           <a href="../index.html" title="Welcome to Minus API’s documentation!"

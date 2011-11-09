@@ -1,0 +1,403 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Feeds &mdash; Minus API v2.10 documentation</title>
+    <link rel="stylesheet" href="../static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.10',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../static/jquery.js"></script>
+    <script type="text/javascript" src="../static/underscore.js"></script>
+    <script type="text/javascript" src="../static/doctools.js"></script>
+    <link rel="top" title="Minus API v2.10 documentation" href="../index.html" />
+    <link rel="up" title="Minus.com API v2 Reference" href="index.html" />
+    <link rel="next" title="oAuth 2.0 authentication overview" href="auth_overview.html" />
+    <link rel="prev" title="User’s folder list" href="list_messages.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="auth_overview.html" title="oAuth 2.0 authentication overview"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="list_messages.html" title="User’s folder list"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Minus API v2.10 documentation</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">Minus.com API v2 Reference</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="feeds">
+<span id="id1"></span><h1>Feeds<a class="headerlink" href="#feeds" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="favorited-folders-feed">
+<span id="feed-favorited"></span><h2>Favorited Folders Feed<a class="headerlink" href="#favorited-folders-feed" title="Permalink to this headline">¶</a></h2>
+<p>URL: <tt class="docutils literal"><span class="pre">/api/v2/activeuser/favorited</span></tt></p>
+<div class="section" id="description">
+<h3>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div>Feed of favorited Folders.</div></blockquote>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">List contains <a class="reference internal" href="objects.html#folder-extended"><em>Extended Folder objects</em></a>.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This interface uses pagination.</p>
+</div>
+</div>
+<div class="section" id="available-methods">
+<h3>Available methods<a class="headerlink" href="#available-methods" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><ul>
+<li><dl class="first docutils">
+<dt>GET</dt>
+<dd><p class="first last">List of favorited folders.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="examples">
+<h3>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="get-folder-list">
+<h4>Get folder list<a class="headerlink" href="#get-folder-list" title="Permalink to this headline">¶</a></h4>
+<p>Response:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;results&quot;</span><span class="p">:</span> <span class="p">[{</span>
+        <span class="s">&quot;flag_count&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s">&quot;view_count&quot;</span><span class="p">:</span> <span class="mi">17</span><span class="p">,</span>
+        <span class="s">&quot;display_name&quot;</span><span class="p">:</span> <span class="s">&quot;John Xie&quot;</span><span class="p">,</span>
+        <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;iPhone wallpaper collection&quot;</span><span class="p">,</span>
+        <span class="s">&quot;creator&quot;</span><span class="p">:</span> <span class="s">&quot;http://minus.com/api/v2/users/john&quot;</span><span class="p">,</span>
+        <span class="s">&quot;url&quot;</span><span class="p">:</span> <span class="s">&quot;http://minus.com/api/v2/folders/bj3BjShTj&quot;</span><span class="p">,</span>
+        <span class="s">&quot;created&quot;</span><span class="p">:</span> <span class="s">&quot;2011-10-26 13:33:17&quot;</span><span class="p">,</span>
+        <span class="s">&quot;star_count&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s">&quot;is_flagged&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+        <span class="s">&quot;featured&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s">&quot;score&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s">&quot;file_count&quot;</span><span class="p">:</span> <span class="mi">57</span><span class="p">,</span>
+        <span class="s">&quot;active&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+        <span class="s">&quot;is_public&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s">&quot;is_starred&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+        <span class="s">&quot;thumbnail_url&quot;</span><span class="p">:</span> <span class="s">&quot;http://k.min.us/kortAJzf1VPZj.jpg&quot;</span><span class="p">,</span>
+        <span class="s">&quot;created_ago&quot;</span><span class="p">:</span> <span class="mi">79481</span><span class="p">,</span>
+        <span class="s">&quot;files&quot;</span><span class="p">:</span> <span class="s">&quot;http://minus.com/api/v2/folders/bj3BjShTj/files&quot;</span>
+    <span class="p">},</span> <span class="p">{</span>
+        <span class="s">&quot;flag_count&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s">&quot;view_count&quot;</span><span class="p">:</span> <span class="mi">468</span><span class="p">,</span>
+        <span class="s">&quot;display_name&quot;</span><span class="p">:</span> <span class="s">&quot;John Xie&quot;</span><span class="p">,</span>
+        <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;New York Comic Con 2011&quot;</span><span class="p">,</span>
+        <span class="s">&quot;creator&quot;</span><span class="p">:</span> <span class="s">&quot;http://minus.com/api/v2/users/john&quot;</span><span class="p">,</span>
+        <span class="s">&quot;url&quot;</span><span class="p">:</span> <span class="s">&quot;http://minus.com/api/v2/folders/bf8NvlDym&quot;</span><span class="p">,</span>
+        <span class="s">&quot;created&quot;</span><span class="p">:</span> <span class="s">&quot;2011-10-17 23:49:14&quot;</span><span class="p">,</span>
+        <span class="s">&quot;star_count&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="s">&quot;is_flagged&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+        <span class="s">&quot;featured&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s">&quot;score&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s">&quot;file_count&quot;</span><span class="p">:</span> <span class="mi">14</span><span class="p">,</span>
+        <span class="s">&quot;active&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+        <span class="s">&quot;is_public&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s">&quot;is_starred&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+        <span class="s">&quot;thumbnail_url&quot;</span><span class="p">:</span> <span class="s">&quot;http://k.min.us/kWEnvQPtta2oS.jpg&quot;</span><span class="p">,</span>
+        <span class="s">&quot;created_ago&quot;</span><span class="p">:</span> <span class="mi">820124</span><span class="p">,</span>
+        <span class="s">&quot;files&quot;</span><span class="p">:</span> <span class="s">&quot;http://minus.com/api/v2/folders/bf8NvlDym/files&quot;</span>
+    <span class="p">},</span><span class="o">...</span><span class="p">],</span>
+    <span class="s">&quot;page&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s">&quot;next&quot;</span><span class="p">:</span> <span class="s">&quot;http://minus.com/api/v2/activeuser/favorited?page=2&quot;</span><span class="p">,</span>
+    <span class="s">&quot;per_page&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+    <span class="s">&quot;total&quot;</span><span class="p">:</span> <span class="mi">27</span><span class="p">,</span>
+    <span class="s">&quot;pages&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s">&quot;previous&quot;</span><span class="p">:</span> <span class="n">null</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="feed">
+<span id="feed-feed"></span><h2>Feed<a class="headerlink" href="#feed" title="Permalink to this headline">¶</a></h2>
+<p>URL: <tt class="docutils literal"><span class="pre">/api/v2/activeuser/mine</span></tt></p>
+<div class="section" id="id2">
+<h3>Description<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div>List of friens&#8217; public folders.</div></blockquote>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">List contains <a class="reference internal" href="objects.html#folder-extended"><em>Extended Folder objects</em></a>.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This interface uses pagination.</p>
+</div>
+</div>
+<div class="section" id="id3">
+<h3>Available methods<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><ul>
+<li><dl class="first docutils">
+<dt>GET</dt>
+<dd><p class="first last">Give back a list of folders belonging to a user.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="id4">
+<h3>Examples<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id5">
+<h4>Get folder list<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
+<p>Response:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;results&quot;</span><span class="p">:</span> <span class="p">[{</span>
+        <span class="s">&quot;flag_count&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s">&quot;view_count&quot;</span><span class="p">:</span> <span class="mi">17</span><span class="p">,</span>
+        <span class="s">&quot;display_name&quot;</span><span class="p">:</span> <span class="s">&quot;John Xie&quot;</span><span class="p">,</span>
+        <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;iPhone wallpaper collection&quot;</span><span class="p">,</span>
+        <span class="s">&quot;creator&quot;</span><span class="p">:</span> <span class="s">&quot;http://minus.com/api/v2/users/john&quot;</span><span class="p">,</span>
+        <span class="s">&quot;url&quot;</span><span class="p">:</span> <span class="s">&quot;http://minus.com/api/v2/folders/bj3BjShTj&quot;</span><span class="p">,</span>
+        <span class="s">&quot;created&quot;</span><span class="p">:</span> <span class="s">&quot;2011-10-26 13:33:17&quot;</span><span class="p">,</span>
+        <span class="s">&quot;star_count&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s">&quot;is_flagged&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+        <span class="s">&quot;featured&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s">&quot;score&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s">&quot;file_count&quot;</span><span class="p">:</span> <span class="mi">57</span><span class="p">,</span>
+        <span class="s">&quot;active&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+        <span class="s">&quot;is_public&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s">&quot;is_starred&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+        <span class="s">&quot;thumbnail_url&quot;</span><span class="p">:</span> <span class="s">&quot;http://k.min.us/kortAJzf1VPZj.jpg&quot;</span><span class="p">,</span>
+        <span class="s">&quot;created_ago&quot;</span><span class="p">:</span> <span class="mi">79481</span><span class="p">,</span>
+        <span class="s">&quot;files&quot;</span><span class="p">:</span> <span class="s">&quot;http://minus.com/api/v2/folders/bj3BjShTj/files&quot;</span>
+    <span class="p">},</span> <span class="p">{</span>
+        <span class="s">&quot;flag_count&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s">&quot;view_count&quot;</span><span class="p">:</span> <span class="mi">468</span><span class="p">,</span>
+        <span class="s">&quot;display_name&quot;</span><span class="p">:</span> <span class="s">&quot;John Xie&quot;</span><span class="p">,</span>
+        <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;New York Comic Con 2011&quot;</span><span class="p">,</span>
+        <span class="s">&quot;creator&quot;</span><span class="p">:</span> <span class="s">&quot;http://minus.com/api/v2/users/john&quot;</span><span class="p">,</span>
+        <span class="s">&quot;url&quot;</span><span class="p">:</span> <span class="s">&quot;http://minus.com/api/v2/folders/bf8NvlDym&quot;</span><span class="p">,</span>
+        <span class="s">&quot;created&quot;</span><span class="p">:</span> <span class="s">&quot;2011-10-17 23:49:14&quot;</span><span class="p">,</span>
+        <span class="s">&quot;star_count&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="s">&quot;is_flagged&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+        <span class="s">&quot;featured&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s">&quot;score&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s">&quot;file_count&quot;</span><span class="p">:</span> <span class="mi">14</span><span class="p">,</span>
+        <span class="s">&quot;active&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+        <span class="s">&quot;is_public&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s">&quot;is_starred&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+        <span class="s">&quot;thumbnail_url&quot;</span><span class="p">:</span> <span class="s">&quot;http://k.min.us/kWEnvQPtta2oS.jpg&quot;</span><span class="p">,</span>
+        <span class="s">&quot;created_ago&quot;</span><span class="p">:</span> <span class="mi">820124</span><span class="p">,</span>
+        <span class="s">&quot;files&quot;</span><span class="p">:</span> <span class="s">&quot;http://minus.com/api/v2/folders/bf8NvlDym/files&quot;</span>
+    <span class="p">},</span><span class="o">...</span><span class="p">],</span>
+    <span class="s">&quot;page&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s">&quot;next&quot;</span><span class="p">:</span> <span class="s">&quot;http://minus.com/api/v2/activeuser/feed?page=2&quot;</span><span class="p">,</span>
+    <span class="s">&quot;per_page&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+    <span class="s">&quot;total&quot;</span><span class="p">:</span> <span class="mi">27</span><span class="p">,</span>
+    <span class="s">&quot;pages&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s">&quot;previous&quot;</span><span class="p">:</span> <span class="n">null</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="user-s-mine-feed">
+<span id="feed-mine"></span><h2>User&#8217;s mine feed<a class="headerlink" href="#user-s-mine-feed" title="Permalink to this headline">¶</a></h2>
+<p>URL: <tt class="docutils literal"><span class="pre">/api/v2/activeuser/mine</span></tt></p>
+<div class="section" id="id6">
+<h3>Description<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div>Returns the same list of Folders as on minus.com dashboard mine page.</div></blockquote>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">List contains <a class="reference internal" href="objects.html#folder-extended"><em>Extended Folder objects</em></a>.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This interface uses pagination.</p>
+</div>
+</div>
+<div class="section" id="id7">
+<h3>Available methods<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><ul>
+<li><dl class="first docutils">
+<dt>GET</dt>
+<dd><p class="first last">Give back a list of folders belonging to a user.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="id8">
+<h3>Examples<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id9">
+<h4>Get folder list<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h4>
+<p>Response:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;results&quot;</span><span class="p">:</span> <span class="p">[{</span>
+        <span class="s">&quot;flag_count&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s">&quot;view_count&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s">&quot;display_name&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+        <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+        <span class="s">&quot;creator&quot;</span><span class="p">:</span> <span class="s">&quot;http://minus.com/api/v2/users/api_examples&quot;</span><span class="p">,</span>
+        <span class="s">&quot;url&quot;</span><span class="p">:</span> <span class="s">&quot;http://minus.com/api/v2/folders/tflS3O6f&quot;</span><span class="p">,</span>
+        <span class="s">&quot;created&quot;</span><span class="p">:</span> <span class="s">&quot;2011-09-12 06:51:12&quot;</span><span class="p">,</span>
+        <span class="s">&quot;star_count&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s">&quot;is_flagged&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+        <span class="s">&quot;featured&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s">&quot;score&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s">&quot;file_count&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s">&quot;active&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+        <span class="s">&quot;is_public&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s">&quot;is_starred&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+        <span class="s">&quot;thumbnail_url&quot;</span><span class="p">:</span> <span class="s">&quot;//dgbc7tshfzi70.cloudfront.net/smedia/minus/images/file_icons/85_v2/file_icon_generic_file.png&quot;</span><span class="p">,</span>
+        <span class="s">&quot;created_ago&quot;</span><span class="p">:</span> <span class="mi">3903373</span><span class="p">,</span>
+        <span class="s">&quot;files&quot;</span><span class="p">:</span> <span class="s">&quot;http://minus.com/api/v2/folders/tflS3O6f/files&quot;</span>
+    <span class="p">},</span> <span class="p">{</span>
+        <span class="s">&quot;flag_count&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s">&quot;view_count&quot;</span><span class="p">:</span> <span class="mi">69</span><span class="p">,</span>
+        <span class="s">&quot;display_name&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+        <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;Test gallery&quot;</span><span class="p">,</span>
+        <span class="s">&quot;creator&quot;</span><span class="p">:</span> <span class="s">&quot;http://minus.com/api/v2/users/api_examples&quot;</span><span class="p">,</span>
+        <span class="s">&quot;url&quot;</span><span class="p">:</span> <span class="s">&quot;http://minus.com/api/v2/folders/0FQHJakL&quot;</span><span class="p">,</span>
+        <span class="s">&quot;created&quot;</span><span class="p">:</span> <span class="s">&quot;2011-09-09 14:25:09&quot;</span><span class="p">,</span>
+        <span class="s">&quot;star_count&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s">&quot;is_flagged&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+        <span class="s">&quot;featured&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s">&quot;score&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s">&quot;file_count&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
+        <span class="s">&quot;active&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+        <span class="s">&quot;is_public&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s">&quot;is_starred&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+        <span class="s">&quot;thumbnail_url&quot;</span><span class="p">:</span> <span class="s">&quot;http://k.min.us/kOO0hyzBL1IGk.jpg&quot;</span><span class="p">,</span>
+        <span class="s">&quot;created_ago&quot;</span><span class="p">:</span> <span class="mi">4135336</span><span class="p">,</span>
+        <span class="s">&quot;files&quot;</span><span class="p">:</span> <span class="s">&quot;http://minus.com/api/v2/folders/0FQHJakL/files&quot;</span>
+    <span class="p">}],</span>
+    <span class="s">&quot;page&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s">&quot;next&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s">&quot;per_page&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+    <span class="s">&quot;total&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s">&quot;pages&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s">&quot;previous&quot;</span><span class="p">:</span> <span class="n">null</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Feeds</a><ul>
+<li><a class="reference internal" href="#favorited-folders-feed">Favorited Folders Feed</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#available-methods">Available methods</a></li>
+<li><a class="reference internal" href="#examples">Examples</a><ul>
+<li><a class="reference internal" href="#get-folder-list">Get folder list</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#feed">Feed</a><ul>
+<li><a class="reference internal" href="#id2">Description</a></li>
+<li><a class="reference internal" href="#id3">Available methods</a></li>
+<li><a class="reference internal" href="#id4">Examples</a><ul>
+<li><a class="reference internal" href="#id5">Get folder list</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#user-s-mine-feed">User&#8217;s mine feed</a><ul>
+<li><a class="reference internal" href="#id6">Description</a></li>
+<li><a class="reference internal" href="#id7">Available methods</a></li>
+<li><a class="reference internal" href="#id8">Examples</a><ul>
+<li><a class="reference internal" href="#id9">Get folder list</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="list_messages.html"
+                        title="previous chapter">User&#8217;s folder list</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="auth_overview.html"
+                        title="next chapter">oAuth 2.0 authentication overview</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../sources/v2/feeds.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="auth_overview.html" title="oAuth 2.0 authentication overview"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="list_messages.html" title="User’s folder list"
+             >previous</a> |</li>
+        <li><a href="../index.html">Minus API v2.10 documentation</a> &raquo;</li>
+          <li><a href="index.html" >Minus.com API v2 Reference</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Minus Inc..
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>
