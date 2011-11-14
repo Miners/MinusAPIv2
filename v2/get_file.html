@@ -24,7 +24,7 @@
     <link rel="top" title="Minus API v2.10 documentation" href="../index.html" />
     <link rel="up" title="Minus.com API v2 Reference" href="index.html" />
     <link rel="next" title="File list in a Folder" href="list_folder_files.html" />
-    <link rel="prev" title="Folder" href="get_folder.html" /> 
+    <link rel="prev" title="Folder interface" href="get_folder.html" /> 
   </head>
   <body>
     <div class="related">
@@ -37,7 +37,7 @@
           <a href="list_folder_files.html" title="File list in a Folder"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="get_folder.html" title="Folder"
+          <a href="get_folder.html" title="Folder interface"
              accesskey="P">previous</a> |</li>
         <li><a href="../index.html">Minus API v2.10 documentation</a> &raquo;</li>
           <li><a href="index.html" accesskey="U">Minus.com API v2 Reference</a> &raquo;</li> 
@@ -74,14 +74,91 @@
 </table>
 <dl class="docutils">
 <dt>Available methods:</dt>
-<dd><ul class="first last simple">
-<li>GET</li>
-<li>DELETE</li>
+<dd><ul class="first last">
+<li><dl class="first docutils">
+<dt>GET</dt>
+<dd><p class="first last">Get Minus <a class="reference internal" href="objects.html#file"><em>File</em></a></p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>PUT</dt>
+<dd><p class="first last">Modify Minus <a class="reference internal" href="objects.html#file"><em>File</em></a> fields</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>DELETE</dt>
+<dd><p class="first last">Delete Minus <a class="reference internal" href="objects.html#file"><em>File</em></a> from Folder</p>
+</dd>
+</dl>
+</li>
 </ul>
 </dd>
 <dt>Description:</dt>
-<dd>Gives back the File object of the given ID.</dd>
+<dd>Get, delete or modify a Minus <a class="reference internal" href="objects.html#folder"><em>Folder</em></a>.</dd>
 </dl>
+<div class="section" id="put-fields">
+<h2>PUT fields<a class="headerlink" href="#put-fields" title="Permalink to this headline">¶</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">caption:</th><td class="field-body">File caption</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>Get File<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>Request:</p>
+<div class="highlight-python"><pre>GET /api/v2/files/[file id]?bearer_token=0f513a4a4ce378a72fc4 HTTP/1.1
+Host: minus.com
+Content-Type: application/x-www-form-urlencoded; charset=UTF-8
+Accept: */*
+Accept-Charset: UTF-8,*;q=0.5</pre>
+</div>
+<p>Response:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;mimetype&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+    <span class="s">&quot;uploaded&quot;</span><span class="p">:</span> <span class="s">&quot;2011-11-07 12:02:28&quot;</span><span class="p">,</span>
+    <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;test_628045.jpg&quot;</span><span class="p">,</span>
+    <span class="s">&quot;caption&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+    <span class="s">&quot;url&quot;</span><span class="p">:</span> <span class="s">&quot;https://minus.com/api/v2/files/[file id]&quot;</span><span class="p">,</span>
+    <span class="s">&quot;url_preview&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s">&quot;title&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+    <span class="s">&quot;url_thumbnail_medium&quot;</span><span class="p">:</span> <span class="s">&quot;/kVafnw8WkWC3b.jpg&quot;</span><span class="p">,</span>
+    <span class="s">&quot;height&quot;</span><span class="p">:</span> <span class="mi">471</span><span class="p">,</span>
+    <span class="s">&quot;width&quot;</span><span class="p">:</span> <span class="mi">334</span><span class="p">,</span>
+    <span class="s">&quot;uploaded_ago&quot;</span><span class="p">:</span> <span class="mi">605350</span><span class="p">,</span>
+    <span class="s">&quot;filesize&quot;</span><span class="p">:</span> <span class="mi">72354</span><span class="p">,</span>
+    <span class="s">&quot;url_rawfile&quot;</span><span class="p">:</span> <span class="s">&quot;http://minus.com/i[file id].jpg&quot;</span><span class="p">,</span>
+    <span class="s">&quot;folder&quot;</span><span class="p">:</span> <span class="s">&quot;https://minus.com/api/v2/folders/[folder id]&quot;</span><span class="p">,</span>
+    <span class="s">&quot;url_thumbnail&quot;</span><span class="p">:</span> <span class="s">&quot;/jVafnw8WkWC3b.jpg&quot;</span><span class="p">,</span>
+    <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="s">&quot;[file id]&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="delete-file">
+<h3>Delete File<a class="headerlink" href="#delete-file" title="Permalink to this headline">¶</a></h3>
+<p>Request:</p>
+<div class="highlight-python"><pre>DELETE /api/v2/files/Vafnw8WkWC3b?bearer_token=0f513a4a4ce378a72fc4 HTTP/1.1
+Host: minus.com
+Content-Type: application/x-www-form-urlencoded; charset=UTF-8
+Accept: */*
+Accept-Charset: UTF-8,*;q=0.5</pre>
+</div>
+<p>Response:</p>
+<div class="highlight-python"><pre>HTTP/1.0 204 NO CONTENT
+Vary: Authenticate, Accept, Cookie
+Content-Type: application/json
+Allow: GET, PUT, DELETE</pre>
+</div>
+</div>
+</div>
 </div>
 
 
@@ -90,9 +167,22 @@
       </div>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">File</a><ul>
+<li><a class="reference internal" href="#put-fields">PUT fields</a></li>
+<li><a class="reference internal" href="#examples">Examples</a><ul>
+<li><a class="reference internal" href="#id1">Get File</a></li>
+<li><a class="reference internal" href="#delete-file">Delete File</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
   <h4>Previous topic</h4>
   <p class="topless"><a href="get_folder.html"
-                        title="previous chapter">Folder</a></p>
+                        title="previous chapter">Folder interface</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="list_folder_files.html"
                         title="next chapter">File list in a Folder</a></p>
@@ -128,7 +218,7 @@
           <a href="list_folder_files.html" title="File list in a Folder"
              >next</a> |</li>
         <li class="right" >
-          <a href="get_folder.html" title="Folder"
+          <a href="get_folder.html" title="Folder interface"
              >previous</a> |</li>
         <li><a href="../index.html">Minus API v2.10 documentation</a> &raquo;</li>
           <li><a href="index.html" >Minus.com API v2 Reference</a> &raquo;</li> 

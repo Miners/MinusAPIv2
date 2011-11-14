@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Folder &mdash; Minus API v2.10 documentation</title>
+    <title>Folder interface &mdash; Minus API v2.10 documentation</title>
     <link rel="stylesheet" href="../static/nature.css" type="text/css" />
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -49,8 +49,8 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="folder">
-<span id="get-folder"></span><h1>Folder<a class="headerlink" href="#folder" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="folder-interface">
+<span id="get-folder"></span><h1>Folder interface<a class="headerlink" href="#folder-interface" title="Permalink to this headline">¶</a></h1>
 <p>URL: <tt class="docutils literal"><span class="pre">/api/v2/folders/[id]</span></tt></p>
 <p>Attributes:</p>
 <table border="1" class="docutils">
@@ -74,14 +74,127 @@
 </table>
 <dl class="docutils">
 <dt>Available methods:</dt>
-<dd><ul class="first last simple">
-<li>GET</li>
-<li>DELETE</li>
+<dd><ul class="first last">
+<li><dl class="first docutils">
+<dt>GET</dt>
+<dd><p class="first last">Get Minus <a class="reference internal" href="objects.html#folder"><em>Folder</em></a></p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>PUT</dt>
+<dd><p class="first last">Modify <a class="reference internal" href="objects.html#folder"><em>Folder</em></a></p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>DELETE</dt>
+<dd><p class="first last">Delete <a class="reference internal" href="objects.html#folder"><em>Folder</em></a></p>
+</dd>
+</dl>
+</li>
 </ul>
 </dd>
 <dt>Description:</dt>
-<dd>Folder instance</dd>
+<dd>Get, delete or modify a Minus <a class="reference internal" href="objects.html#folder"><em>Folder</em></a>.</dd>
 </dl>
+<div class="section" id="put-fields">
+<h2>PUT fields<a class="headerlink" href="#put-fields" title="Permalink to this headline">¶</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">name:</th><td class="field-body">Folder Name (string)</td>
+</tr>
+<tr class="field"><th class="field-name">is_public:</th><td class="field-body">Public flag (boolean)</td>
+</tr>
+<tr class="field"><th class="field-name">item_ordering:</th><td class="field-body">Order of contained items (json encoded list)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>Get folder<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>Request:</p>
+<div class="highlight-python"><pre>GET /api/v2/folders/[folder id]?bearer_token=[token] HTTP/1.1
+Host: minus.com
+Accept: */*
+Accept-Charset: UTF-8,*;q=0.5</pre>
+</div>
+<p>Response body:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;files&quot;</span><span class="p">:</span> <span class="s">&quot;https://minus.com/api/v2/folders/[folder id]/files&quot;</span><span class="p">,</span>
+    <span class="s">&quot;view_count&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s">&quot;date_last_updated&quot;</span><span class="p">:</span> <span class="s">&quot;2011-11-10 17:18:11&quot;</span><span class="p">,</span>
+    <span class="s">&quot;last_updated&quot;</span><span class="p">:</span> <span class="s">&quot;2011-11-10 17:18:11&quot;</span><span class="p">,</span>
+    <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;Screen Shot 2011-10-13 at 9.04.00 AM&quot;</span><span class="p">,</span>
+    <span class="s">&quot;creator&quot;</span><span class="p">:</span> <span class="s">&quot;https://minus.com/api/v2/users/api_examples&quot;</span><span class="p">,</span>
+    <span class="s">&quot;url&quot;</span><span class="p">:</span> <span class="s">&quot;https://minus.com/api/v2/folders/[folder id]&quot;</span><span class="p">,</span>
+    <span class="s">&quot;created&quot;</span><span class="p">:</span> <span class="s">&quot;2011-11-10 17:18:06&quot;</span><span class="p">,</span>
+    <span class="s">&quot;item_ordering&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s">&quot;bkErpJKXLMunu&quot;</span><span class="p">,</span> <span class="s">&quot;TQ2pnAjsAf35&quot;</span><span class="p">],</span>
+    <span class="s">&quot;last_updated_ago&quot;</span><span class="p">:</span> <span class="mi">325092</span><span class="p">,</span>
+    <span class="s">&quot;created_ago&quot;</span><span class="p">:</span> <span class="mi">325097</span><span class="p">,</span>
+    <span class="s">&quot;thumbnail_url&quot;</span><span class="p">:</span> <span class="s">&quot;/kbkErpJKXLMunu.jpg&quot;</span><span class="p">,</span>
+    <span class="s">&quot;file_count&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s">&quot;is_public&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="s">&quot;[folder id]&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="change-name-and-item-ordering">
+<h3>Change name and item_ordering<a class="headerlink" href="#change-name-and-item-ordering" title="Permalink to this headline">¶</a></h3>
+<p>Request:</p>
+<div class="highlight-python"><pre>PUT /api/v2/folders/N3giEM9n?bearer_token=0f513a4a4ce378a72fc4 HTTP/1.1
+Host: minus.com
+Content-Type: application/x-www-form-urlencoded; charset=UTF-8
+Accept: */*
+Accept-Charset: UTF-8,*;q=0.5
+
+name=Test&amp;item_ordering=["TQ2pnAjsAf35", "bkErpJKXLMunu"]</pre>
+</div>
+<p>Response body:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;files&quot;</span><span class="p">:</span> <span class="s">&quot;https://minus.com/api/v2/folders/[folder id]/files&quot;</span><span class="p">,</span>
+    <span class="s">&quot;view_count&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s">&quot;date_last_updated&quot;</span><span class="p">:</span> <span class="s">&quot;2011-11-14 11:44:05&quot;</span><span class="p">,</span>
+    <span class="s">&quot;last_updated&quot;</span><span class="p">:</span> <span class="s">&quot;2011-11-14 11:44:05&quot;</span><span class="p">,</span>
+    <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;Test&quot;</span><span class="p">,</span>
+    <span class="s">&quot;creator&quot;</span><span class="p">:</span> <span class="s">&quot;https://minus.com/api/v2/users/api_examples&quot;</span><span class="p">,</span>
+    <span class="s">&quot;url&quot;</span><span class="p">:</span> <span class="s">&quot;https://minus.com/api/v2/folders/[folder id]&quot;</span><span class="p">,</span>
+    <span class="s">&quot;created&quot;</span><span class="p">:</span> <span class="s">&quot;2011-11-10 17:18:06&quot;</span><span class="p">,</span>
+    <span class="s">&quot;item_ordering&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s">&quot;TQ2pnAjsAf35&quot;</span><span class="p">,</span> <span class="s">&quot;bkErpJKXLMunu&quot;</span><span class="p">],</span>
+    <span class="s">&quot;last_updated_ago&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s">&quot;created_ago&quot;</span><span class="p">:</span> <span class="mi">325559</span><span class="p">,</span>
+    <span class="s">&quot;thumbnail_url&quot;</span><span class="p">:</span> <span class="s">&quot;/kTQ2pnAjsAf35.jpg&quot;</span><span class="p">,</span>
+    <span class="s">&quot;file_count&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s">&quot;is_public&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="s">&quot;[folder id]&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="delete-folder">
+<h3>Delete folder<a class="headerlink" href="#delete-folder" title="Permalink to this headline">¶</a></h3>
+<p>Request:</p>
+<div class="highlight-python"><pre>DELETE /api/v2/folders/N3giEM9n?bearer_token=0f513a4a4ce378a72fc4 HTTP/1.1
+Host: minus.com
+Content-Type: application/x-www-form-urlencoded; charset=UTF-8
+Accept: */*
+Accept-Charset: UTF-8,*;q=0.5</pre>
+</div>
+<dl class="docutils">
+<dt>Response::</dt>
+<dd>HTTP/1.0 204 NO CONTENT
+Vary: Authenticate, Accept, Cookie
+Content-Length: 0
+Content-Type: application/json
+Allow: GET, PUT, DELETE</dd>
+</dl>
+</div>
+</div>
 </div>
 
 
@@ -90,6 +203,20 @@
       </div>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Folder interface</a><ul>
+<li><a class="reference internal" href="#put-fields">PUT fields</a></li>
+<li><a class="reference internal" href="#examples">Examples</a><ul>
+<li><a class="reference internal" href="#id1">Get folder</a></li>
+<li><a class="reference internal" href="#change-name-and-item-ordering">Change name and item_ordering</a></li>
+<li><a class="reference internal" href="#delete-folder">Delete folder</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
   <h4>Previous topic</h4>
   <p class="topless"><a href="get_user.html"
                         title="previous chapter">User</a></p>

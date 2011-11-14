@@ -1,0 +1,249 @@
+.. _feeds:
+
+Feeds
+=====
+
+.. _feed_favorited:
+
+Favorited Folders Feed 
+----------------------
+
+URL: ``/api/v2/activeuser/favorited``
+
+Description
+^^^^^^^^^^^
+
+    Feed of favorited Folders.
+
+.. note::
+    List contains :ref:`Extended Folder objects<folder_extended>`.
+
+.. note::
+    This interface uses pagination.
+
+
+Available methods
+^^^^^^^^^^^^^^^^^
+ * GET
+    List of favorited folders.
+
+
+Examples
+^^^^^^^^
+
+Get folder list
+"""""""""""""""
+
+Response::
+
+    {
+        "results": [{
+            "flag_count": 0,
+            "view_count": 17,
+            "display_name": "John Xie",
+            "name": "iPhone wallpaper collection",
+            "creator": "http://minus.com/api/v2/users/john",
+            "url": "http://minus.com/api/v2/folders/bj3BjShTj",
+            "created": "2011-10-26 13:33:17",
+            "star_count": 0,
+            "is_flagged": null,
+            "featured": 0,
+            "score": 0,
+            "file_count": 57,
+            "active": true,
+            "is_public": 1,
+            "is_starred": null,
+            "thumbnail_url": "http://k.min.us/kortAJzf1VPZj.jpg",
+            "created_ago": 79481,
+            "files": "http://minus.com/api/v2/folders/bj3BjShTj/files"
+        }, {
+            "flag_count": 0,
+            "view_count": 468,
+            "display_name": "John Xie",
+            "name": "New York Comic Con 2011",
+            "creator": "http://minus.com/api/v2/users/john",
+            "url": "http://minus.com/api/v2/folders/bf8NvlDym",
+            "created": "2011-10-17 23:49:14",
+            "star_count": 2,
+            "is_flagged": null,
+            "featured": 0,
+            "score": 0,
+            "file_count": 14,
+            "active": true,
+            "is_public": 1,
+            "is_starred": null,
+            "thumbnail_url": "http://k.min.us/kWEnvQPtta2oS.jpg",
+            "created_ago": 820124,
+            "files": "http://minus.com/api/v2/folders/bf8NvlDym/files"
+        },...],
+        "page": 1,
+        "next": "http://minus.com/api/v2/activeuser/favorited?page=2",
+        "per_page": 20,
+        "total": 27,
+        "pages": 2,
+        "previous": null
+    }
+
+
+.. _feed_feed:
+
+Feed 
+----
+
+URL: ``/api/v2/activeuser/mine``
+
+Description
+^^^^^^^^^^^
+
+    List of friens' public folders. 
+
+.. note::
+    List contains :ref:`Extended Folder objects<folder_extended>`.
+
+.. note::
+    This interface uses pagination.
+
+
+Available methods
+^^^^^^^^^^^^^^^^^
+ * GET
+    Give back a list of folders belonging to a user.
+
+
+Examples
+^^^^^^^^
+
+Get folder list
+"""""""""""""""
+
+Response::
+
+    {
+        "results": [{
+            "flag_count": 0,
+            "view_count": 17,
+            "display_name": "John Xie",
+            "name": "iPhone wallpaper collection",
+            "creator": "http://minus.com/api/v2/users/john",
+            "url": "http://minus.com/api/v2/folders/bj3BjShTj",
+            "created": "2011-10-26 13:33:17",
+            "star_count": 0,
+            "is_flagged": null,
+            "featured": 0,
+            "score": 0,
+            "file_count": 57,
+            "active": true,
+            "is_public": 1,
+            "is_starred": null,
+            "thumbnail_url": "http://k.min.us/kortAJzf1VPZj.jpg",
+            "created_ago": 79481,
+            "files": "http://minus.com/api/v2/folders/bj3BjShTj/files"
+        }, {
+            "flag_count": 0,
+            "view_count": 468,
+            "display_name": "John Xie",
+            "name": "New York Comic Con 2011",
+            "creator": "http://minus.com/api/v2/users/john",
+            "url": "http://minus.com/api/v2/folders/bf8NvlDym",
+            "created": "2011-10-17 23:49:14",
+            "star_count": 2,
+            "is_flagged": null,
+            "featured": 0,
+            "score": 0,
+            "file_count": 14,
+            "active": true,
+            "is_public": 1,
+            "is_starred": null,
+            "thumbnail_url": "http://k.min.us/kWEnvQPtta2oS.jpg",
+            "created_ago": 820124,
+            "files": "http://minus.com/api/v2/folders/bf8NvlDym/files"
+        },...],
+        "page": 1,
+        "next": "http://minus.com/api/v2/activeuser/feed?page=2",
+        "per_page": 20,
+        "total": 27,
+        "pages": 2,
+        "previous": null
+    }
+
+
+.. _feed_mine:
+
+User's mine feed
+----------------
+
+URL: ``/api/v2/activeuser/mine``
+
+Description
+^^^^^^^^^^^
+
+    Returns the same list of Folders as on minus.com dashboard mine page. 
+
+.. note::
+    List contains :ref:`Extended Folder objects<folder_extended>`.
+
+.. note::
+    This interface uses pagination.
+
+
+Available methods
+^^^^^^^^^^^^^^^^^
+ * GET
+    Give back a list of folders belonging to a user.
+
+
+Examples
+^^^^^^^^
+
+Get folder list
+"""""""""""""""
+
+Response::
+
+    {
+        "results": [{
+            "flag_count": 0,
+            "view_count": 0,
+            "display_name": "",
+            "name": "",
+            "creator": "http://minus.com/api/v2/users/api_examples",
+            "url": "http://minus.com/api/v2/folders/tflS3O6f",
+            "created": "2011-09-12 06:51:12",
+            "star_count": 0,
+            "is_flagged": null,
+            "featured": 0,
+            "score": 0,
+            "file_count": 0,
+            "active": true,
+            "is_public": 0,
+            "is_starred": null,
+            "thumbnail_url": "//dgbc7tshfzi70.cloudfront.net/smedia/minus/images/file_icons/85_v2/file_icon_generic_file.png",
+            "created_ago": 3903373,
+            "files": "http://minus.com/api/v2/folders/tflS3O6f/files"
+        }, {
+            "flag_count": 0,
+            "view_count": 69,
+            "display_name": "",
+            "name": "Test gallery",
+            "creator": "http://minus.com/api/v2/users/api_examples",
+            "url": "http://minus.com/api/v2/folders/0FQHJakL",
+            "created": "2011-09-09 14:25:09",
+            "star_count": 0,
+            "is_flagged": null,
+            "featured": 0,
+            "score": 0,
+            "file_count": 8,
+            "active": true,
+            "is_public": 1,
+            "is_starred": null,
+            "thumbnail_url": "http://k.min.us/kOO0hyzBL1IGk.jpg",
+            "created_ago": 4135336,
+            "files": "http://minus.com/api/v2/folders/0FQHJakL/files"
+        }],
+        "page": 1,
+        "next": null,
+        "per_page": 20,
+        "total": 2,
+        "pages": 1,
+        "previous": null
+    }

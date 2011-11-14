@@ -1,0 +1,15 @@
+.. _get_activeuser:
+
+Activeuser interface
+====================
+
+URL: ``/api/v2/activeuser``
+
+Available methods:
+ * GET
+ * PUT
+
+Description:
+    Gives back the actual (logged in) User object.
+
+

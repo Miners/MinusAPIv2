@@ -1,0 +1,85 @@
+.. _get_file:
+
+File
+====
+
+URL: ``/api/v2/files/[id]``
+
+Attributes:
+
++------+-----------------+-------------+
+| Name | Where?          | Description |
++======+=================+=============+
+| id   | part of the url | File ID     |
++------+-----------------+-------------+
+
+Available methods:
+ * GET
+    Get Minus :ref:`File<file>`
+ * PUT
+    Modify Minus :ref:`File<file>` fields
+ * DELETE
+    Delete Minus :ref:`File<file>` from Folder 
+    
+
+Description:
+    Get, delete or modify a Minus :ref:`Folder<folder>`.
+
+PUT fields
+----------
+
+:caption: File caption
+
+Examples
+--------
+
+Get File
+^^^^^^^^
+
+Request::
+
+    GET /api/v2/files/[file id]?bearer_token=0f513a4a4ce378a72fc4 HTTP/1.1
+    Host: minus.com
+    Content-Type: application/x-www-form-urlencoded; charset=UTF-8
+    Accept: */*                
+    Accept-Charset: UTF-8,*;q=0.5 
+
+Response::
+
+    {
+        "mimetype": "",
+        "uploaded": "2011-11-07 12:02:28",
+        "name": "test_628045.jpg",
+        "caption": "",
+        "url": "https://minus.com/api/v2/files/[file id]",
+        "url_preview": null,
+        "title": "",
+        "url_thumbnail_medium": "/kVafnw8WkWC3b.jpg",
+        "height": 471,
+        "width": 334,
+        "uploaded_ago": 605350,
+        "filesize": 72354,
+        "url_rawfile": "http://minus.com/i[file id].jpg",
+        "folder": "https://minus.com/api/v2/folders/[folder id]",
+        "url_thumbnail": "/jVafnw8WkWC3b.jpg",
+        "id": "[file id]"
+    } 
+
+
+Delete File
+^^^^^^^^^^^
+
+Request::
+
+    DELETE /api/v2/files/Vafnw8WkWC3b?bearer_token=0f513a4a4ce378a72fc4 HTTP/1.1
+    Host: minus.com
+    Content-Type: application/x-www-form-urlencoded; charset=UTF-8
+    Accept: */*                
+    Accept-Charset: UTF-8,*;q=0.5
+
+Response::
+    
+    HTTP/1.0 204 NO CONTENT    
+    Vary: Authenticate, Accept, Cookie
+    Content-Type: application/json
+    Allow: GET, PUT, DELETE 

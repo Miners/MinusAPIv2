@@ -1,0 +1,118 @@
+.. _get_folder:
+
+Folder interface
+================
+
+URL: ``/api/v2/folders/[id]``
+
+Attributes:
+
++------+-----------------+-------------+
+| Name | Where?          | Description |
++======+=================+=============+
+| id   | part of the url | Folder ID   |
++------+-----------------+-------------+
+
+Available methods:
+ * GET
+    Get Minus :ref:`Folder<folder>`
+ * PUT
+    Modify :ref:`Folder<folder>`
+ * DELETE
+    Delete :ref:`Folder<folder>`
+
+Description:
+    Get, delete or modify a Minus :ref:`Folder<folder>`.
+
+PUT fields
+----------
+
+:name: Folder Name (string)
+:is_public: Public flag (boolean)
+:item_ordering: Order of contained items (json encoded list)
+
+Examples
+--------
+
+Get folder
+^^^^^^^^^^
+
+Request::
+
+    GET /api/v2/folders/[folder id]?bearer_token=[token] HTTP/1.1
+    Host: minus.com
+    Accept: */*                
+    Accept-Charset: UTF-8,*;q=0.5
+
+Response body::
+
+    {
+        "files": "https://minus.com/api/v2/folders/[folder id]/files",
+        "view_count": 0,
+        "date_last_updated": "2011-11-10 17:18:11",
+        "last_updated": "2011-11-10 17:18:11",
+        "name": "Screen Shot 2011-10-13 at 9.04.00 AM",
+        "creator": "https://minus.com/api/v2/users/api_examples",
+        "url": "https://minus.com/api/v2/folders/[folder id]",
+        "created": "2011-11-10 17:18:06",
+        "item_ordering": ["bkErpJKXLMunu", "TQ2pnAjsAf35"],
+        "last_updated_ago": 325092,
+        "created_ago": 325097,
+        "thumbnail_url": "/kbkErpJKXLMunu.jpg",
+        "file_count": 2,
+        "is_public": false,
+        "id": "[folder id]"
+    }
+
+Change name and item_ordering
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Request::
+
+    PUT /api/v2/folders/N3giEM9n?bearer_token=0f513a4a4ce378a72fc4 HTTP/1.1
+    Host: minus.com     
+    Content-Type: application/x-www-form-urlencoded; charset=UTF-8
+    Accept: */*                
+    Accept-Charset: UTF-8,*;q=0.5
+
+    name=Test&item_ordering=["TQ2pnAjsAf35", "bkErpJKXLMunu"]
+    
+
+Response body::
+
+    {
+        "files": "https://minus.com/api/v2/folders/[folder id]/files",
+        "view_count": 0,
+        "date_last_updated": "2011-11-14 11:44:05",
+        "last_updated": "2011-11-14 11:44:05",
+        "name": "Test",
+        "creator": "https://minus.com/api/v2/users/api_examples",
+        "url": "https://minus.com/api/v2/folders/[folder id]",
+        "created": "2011-11-10 17:18:06",
+        "item_ordering": ["TQ2pnAjsAf35", "bkErpJKXLMunu"],
+        "last_updated_ago": 0,
+        "created_ago": 325559,
+        "thumbnail_url": "/kTQ2pnAjsAf35.jpg",
+        "file_count": 2,
+        "is_public": false,
+        "id": "[folder id]"
+    }
+
+Delete folder
+^^^^^^^^^^^^^
+
+Request::
+    
+    DELETE /api/v2/folders/N3giEM9n?bearer_token=0f513a4a4ce378a72fc4 HTTP/1.1
+    Host: minus.com     
+    Content-Type: application/x-www-form-urlencoded; charset=UTF-8
+    Accept: */*                
+    Accept-Charset: UTF-8,*;q=0.5
+
+Response::
+    HTTP/1.0 204 NO CONTENT    
+    Vary: Authenticate, Accept, Cookie
+    Content-Length: 0          
+    Content-Type: application/json
+    Allow: GET, PUT, DELETE  
+    

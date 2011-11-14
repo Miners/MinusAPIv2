@@ -1,0 +1,111 @@
+.. _auth_tutorial:
+
+oAuth 2.0 tutorial
+==================
+
+This tutorial helps to understand the oAuth authentication system implemented by Minus. 
+It also provides nice examples to implent your client application based on Minus API.
+
+Before you read further, please inform about oAuth on the overview page.
+
+Currently we support only the 'Resource Owner Password Credentials' flow, and we 
+plan to support the 'Authorization Code' flow. The client applications will get
+refresh_token so they can request new access_token everytime.
+
+Authentication
+--------------
+
+For the early-adopter applications this is the only way to authenticate a user.
+This flow requires the end-users to type in their password. However the 
+applications should not save the passwords. The tutorial will explain it more.
+
+Getting tokens using user credentials
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Applications must obtain the tokens using the /oauth/token url.
+
+Request method can be either GET or POST.
+
+The client_id and client_secret can be in the header authentication.
+
+Example token request (POST)::
+
+    POST /oauth/token HTTP/1.1
+    Host: minus.com
+    Content-Type: application/x-www-form-urlencoded; charset=UTF-8
+
+    grant_type=password&client_id=8c1930fddec2e70a9a6791c1fb2b82&client_secret=e80eae9fe98d431f5e642714695d7c&scope=read_public+read_all+upload_new&username=example&password=example
+
+.. note::
+   This request obtains access token with ``read_public``, ``read_all`` and 
+   ``upload_new`` scope.
+
+Example token request (GET)::
+
+    GET /oauth/token?grant_type=password&client_id=8c1930fddec2e70a9a6791c1fb2b82&client_secret=e80eae9fe98d431f5e642714695d7c&scope=read_public&username=example&password=example HTTP/1.1
+    Host: minus.com
+    Content-Type: application/x-www-form-urlencoded; charset=UTF-8
+
+
+If the authentication is sucessfull, the server response contains the tokens::
+
+    {
+        "access_token": "dc19a1ea88", 
+        "token_type": "bearer", 
+        "expire_in": 3600, 
+        "refresh_token": "20ad15128b", 
+        "scope": "read_public"
+    }
+
+:access_token: application should use this token to reach Minus API
+:token_type: at this moment Minus only supports bearer token
+:expire_in: expire time in seconds (default is 1 hour)
+:refresh_token: with this token application can obtain new `acces_token`
+:scope: accepted scope
+
+Once the authentication is successful, applications must drop user password.
+They can request always new access_token using refresh_token. Therefore the
+refresh_token is saveable.
+
+
+Refreshing an access_token
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+As we described the refresh_token is useful when the access_token is not valid
+anymore.
+
+Request method can be either GET or POST.
+
+Example token request (POST)::
+
+    POST /oauth/token HTTP/1.1
+    Host: minus.com
+    Content-Type: application/x-www-form-urlencoded; charset=UTF-8
+
+    grant_type=refresh_token&client_id=8c1930fddec2e70a9a6791c1fb2b82&client_secret=e80eae9fe98d431f5e642714695d7c&scope=read_public&refresh_token=20ad15128b
+
+Response is the same like above.
+
+
+Using Minus API
+---------------
+
+With a valid access_token the application can use the API. It can send the 
+access_token in 3 places of the request:
+
+ - Header authentication (Bearer)
+ - GET parameter: bearer_token
+ - POST parameter: bearer_token
+
+Example API GET request using Header Authorization::
+
+    GET /api/v2/activeuser HTTP/1.1
+    Host: minus.com
+    Authorization: Bearer dc19a1ea88
+
+Example API GET request using GET parameter as access_token::
+
+    POST /api/v2/activeuser?bearer_token=dc19a1ea88 HTTP/1.1
+    Host: minus.com
+
+    

@@ -1,0 +1,282 @@
+.. _objects:
+
+API Objects
+===========
+
+.. _file:
+
+File
+----
+
+File in a folder. A folder can have many files, but a file belongs to only one folder.
+
++---------------+----------+-----------------------+
+| Name          | Type     | Description           |
++===============+==========+=======================+
+| id            | string   | File ID               |
++---------------+----------+-----------------------+
+| name          | string   | Name of file          |
++---------------+----------+-----------------------+
+| title         | string   | Users can add title   |
++---------------+----------+-----------------------+
+| caption       | string   | Caption               |
++---------------+----------+-----------------------+
+| width         | int      | Picture width         |
++---------------+----------+-----------------------+
+| height        | int      | Picture height        |
++---------------+----------+-----------------------+
+| filesize      | int      | File size             |
++---------------+----------+-----------------------+
+| mimetype      | string   | Mimetype              |
++---------------+----------+-----------------------+
+| folder        | string   | Link to Folder        |
++---------------+----------+-----------------------+
+| url           | string   | Url                   |
++---------------+----------+-----------------------+
+| uploaded      | datetime | Uploaded at           |
++---------------+----------+-----------------------+
+| url_rawfile   | string   | Link to original file |
++---------------+----------+-----------------------+
+| url_thumbnail | string   | Thumbnail url         |
++---------------+----------+-----------------------+
+
+Example::
+
+    {
+        "mimetype": "",
+        "uploaded": "2011-09-09 14:28:52",
+        "name": "macskafogo.jpeg",
+        "caption": "",
+        "url": "http://minus.com/api/v2/files/hvzcZLBsjyIF",
+        "title": "",
+        "height": 302,
+        "width": 400,
+        "uploaded_ago": 1209,
+        "filesize": 38184,
+        "url_rawfile": "http://i.min.us/i%s%shvzcZLBsjyIF.jpeg",
+        "folder": "http://minus.com/api/v2/folders/0FQHJakL",
+        "url_thumbnail": "http://k.min.us/j%s%shvzcZLBsjyIF.jpeg",
+        "id": "hvzcZLBsjyIF"
+    }
+
+.. _folder:
+
+Folder
+------
+
+The Folder can have one or more files.
+
++-------------------+---------+--------------------------+
+| Name              | Type    | Description              |
++===================+=========+==========================+
+| id                | string  | ID                       |
++-------------------+---------+--------------------------+
+| thumbnail_url     | string  | Thumbnail URL            |
++-------------------+---------+--------------------------+
+| name              | string  | Folder name              |
++-------------------+---------+--------------------------+
+| is_public         | boolean | Is the folder public?    |
++-------------------+---------+--------------------------+
+| view_count        | int     | Number of views          |
++-------------------+---------+--------------------------+
+| creator           | string  | Link to the creator User |
++-------------------+---------+--------------------------+
+| file_count        | int     | Number of files          |
++-------------------+---------+--------------------------+
+| date_last_updated | date    | Last updated on          |
++-------------------+---------+--------------------------+
+| files             | string  | Link to the File list    |
++-------------------+---------+--------------------------+
+| url               | string  | URL                      |
++-------------------+---------+--------------------------+
+
+
+Example::
+
+    {
+        "files": "http://minus.com/api/v2/folders/0FQHJakL/files",
+        "view_count": 0,
+        "date_last_updated": "2011-09-09 14:28:54",
+        "name": "Test gallery",
+        "creator": "http://minus.com/api/v2/users/api_examples",
+        "url": "http://minus.com/api/v2/folders/0FQHJakL",
+        "thumbnail_url": "//k.minus.com/kOO0hyzBL1IGk.jpg",
+        "file_count": 3,
+        "is_public": true,
+        "id": "0FQHJakL"
+    }
+
+.. _folder_extended:
+
+Extended Folder
+---------------
+
+Folder projection object is an enhanced Folder object. I includes more fields,
+and some of the original fields are skipped. New Folder list interfaces return 
+this object.
+
+
++-------------------+---------+--------------------------+
+| Name              | Type    | Description              |
++===================+=========+==========================+
+| id                | string  | ID                       |
++-------------------+---------+--------------------------+
+| name              | string  | Folder name              |
++-------------------+---------+--------------------------+
+| file_count        | int     | Number of files          |
++-------------------+---------+--------------------------+
+| view_count        | int     | Number of views          |
++-------------------+---------+--------------------------+
+| star_count        | int     | Number of stars          |
++-------------------+---------+--------------------------+
+| flag_count        | int     | Number of flags          |
++-------------------+---------+--------------------------+
+| date              | date    | Last updated on          |
++-------------------+---------+--------------------------+
+| display_name      | string  | Creator's display name   |
++-------------------+---------+--------------------------+
+| is_starred        | boolean | Is the actual user       |
+|                   |         | starred this folder?     |
++-------------------+---------+--------------------------+
+| is_flagged        | boolean | Is the actual user       |
+|                   |         | flagged this folder?     |
++-------------------+---------+--------------------------+
+| thumbnail_url     | string  | Thumbnail URL            |
++-------------------+---------+--------------------------+
+| is_public         | boolean | Is the folder public?    |
++-------------------+---------+--------------------------+
+| featured          | boolean | Is the folder featured?  |
++-------------------+---------+--------------------------+
+| creator           | string  | Link to the creator User |
++-------------------+---------+--------------------------+
+| files             | string  | Link to the File list    |
++-------------------+---------+--------------------------+
+| url               | string  | URL                      |
++-------------------+---------+--------------------------+
+
+
+Example::
+
+    {
+        "flag_count": 0,
+        "view_count": 0,
+        "display_name": "",
+        "name": "",
+        "creator": "http://minus.com/api/v2/users/api_examples",
+        "url": "http://minus.com/api/v2/folders/tflS3O6f",
+        "created": "2011-09-12 06:51:12",
+        "star_count": 0,
+        "is_flagged": null,
+        "featured": 0,
+        "score": 0,
+        "file_count": 0,
+        "active": true,
+        "is_public": 0,
+        "is_starred": null,
+        "thumbnail_url": "http://dgbc7tshfzi70.cloudfront.net/smedia/minus/images/file_icons/85_v2/file_icon_generic_file.png",
+        "created_ago": 3903373,
+        "files": "http://minus.com/api/v2/folders/tflS3O6f/files"
+    }
+
+.. _user:
+
+User Object
+-----------
+
+This object represents a Minus user
+
+Some fields visible only for actual user, they are marked.
+
++---------------------+---------+---------+------------------------------------------------------------------------------------+
+| Name                | Type    | Private | Description                                                                        |
++=====================+=========+=========+====================================================================================+
+| username            | string  |         | Username                                                                           |
++---------------------+---------+---------+------------------------------------------------------------------------------------+
+| display_name        | string  |         | Display name                                                                       |
++---------------------+---------+---------+------------------------------------------------------------------------------------+
+| description         | string  |         | Description                                                                        |
++---------------------+---------+---------+------------------------------------------------------------------------------------+
+| email               | string  | *       | User email                                                                         |
++---------------------+---------+---------+------------------------------------------------------------------------------------+
+| slug                | string  |         | Using this value you can build urls for the webpage. e.g. http://minus.com/u[slug] |
++---------------------+---------+---------+------------------------------------------------------------------------------------+
+| fb_profile_link     | string  |         | If user has facebook connection, the value contains the link to facebook profile.  |
++---------------------+---------+---------+------------------------------------------------------------------------------------+
+| fb_username         | string  |         | If user has facebook connection, the value contains the facebook username.         |
++---------------------+---------+---------+------------------------------------------------------------------------------------+
+| twitter_screen_name | string  |         | If the user has twitter connection, twitter username                               |
++---------------------+---------+---------+------------------------------------------------------------------------------------+
+| visits              | integer |         | Number of visits                                                                   |
++---------------------+---------+---------+------------------------------------------------------------------------------------+
+| karma               | integer |         | Karma                                                                              |
++---------------------+---------+---------+------------------------------------------------------------------------------------+
+| shared              | integer |         | Number of shared elements                                                          |
++---------------------+---------+---------+------------------------------------------------------------------------------------+
+| folders             | string  |         | Link to the folder list.                                                           |
++---------------------+---------+---------+------------------------------------------------------------------------------------+
+| url                 | string  |         | URL                                                                                |
++---------------------+---------+---------+------------------------------------------------------------------------------------+
+| avatar              | string  |         | Avatar image url                                                                   |
++---------------------+---------+---------+------------------------------------------------------------------------------------+
+| storage_used        | integer | *       | Storage usage (bytes)                                                              |
++---------------------+---------+---------+------------------------------------------------------------------------------------+
+| storage_quota       | integer | *       | Maximum available storage for user (bytes)                                         |
++---------------------+---------+---------+------------------------------------------------------------------------------------+
+
+
+
+Example::
+
+    {
+        "username": "api_examples",
+        "folders": "http://minus.com/api/v2/users/api_examples/folders",
+        "display_name": "",
+        "description": null,
+        "url": "http://minus.com/api/v2/users/api_examples",
+        "storage_quota": 10000000000,
+        "visits": 0,
+        "email": "api_examples@maczak.hu",
+        "fb_username": "",
+        "storage_used": 119163,
+        "avatar": "http://dgbc7tshfzi70.cloudfront.net/smedia/minus/images/default_avatar.png",
+        "karma": 0,
+        "shared": 1,
+        "fb_profile_link": "",
+        "slug": "api_examples",
+        "twitter_screen_name": ""
+    }
+
+.. _message:
+
+Message object
+--------------
+
+Message betweeen 2 :ref:``users <user>``. 
+
++---------+----------+------------------------+
+| Name    | Type     | Description            |
++=========+==========+========================+
+| body    | string   | Content of message     |
++---------+----------+------------------------+
+| read    | boolean  | Is message read?       |
++---------+----------+------------------------+
+| target  | string   | Link to recipient user |
++---------+----------+------------------------+
+| sender  | string   | Link to sender user    |
++---------+----------+------------------------+
+| thred   | string   | Link to thread         |
++---------+----------+------------------------+
+| created | datetime | Created at             |
++---------+----------+------------------------+
+
+
+Example::
+
+    {
+        "body": "hey, what's up?",
+        "read": false,
+        "target": "http://minus.com/api/v2/users/api_examples",
+        "sender": "http://minus.com/api/v2/users/macat",
+        "thread": "http://minus.com/api/v2/activeuser/messages/api_examples",
+        "created": "2011-11-08 19:25:30"
+    }
