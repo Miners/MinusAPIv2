@@ -2,13 +2,16 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>API Objects &mdash; Minus API v2.10 documentation</title>
+    <title>API Objects &mdash; Minus API 2.10 documentation</title>
+    
     <link rel="stylesheet" href="../static/nature.css" type="text/css" />
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
@@ -21,7 +24,7 @@
     <script type="text/javascript" src="../static/jquery.js"></script>
     <script type="text/javascript" src="../static/underscore.js"></script>
     <script type="text/javascript" src="../static/doctools.js"></script>
-    <link rel="top" title="Minus API v2.10 documentation" href="../index.html" />
+    <link rel="top" title="Minus API 2.10 documentation" href="../index.html" />
     <link rel="up" title="Minus.com API v2 Reference" href="index.html" />
     <link rel="next" title="Activeuser interface" href="get_activeuser.html" />
     <link rel="prev" title="Minus.com API v2 Reference" href="index.html" /> 
@@ -39,7 +42,7 @@
         <li class="right" >
           <a href="index.html" title="Minus.com API v2 Reference"
              accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">Minus API v2.10 documentation</a> &raquo;</li>
+        <li><a href="../index.html">Minus API 2.10 documentation</a> &raquo;</li>
           <li><a href="index.html" accesskey="U">Minus.com API v2 Reference</a> &raquo;</li> 
       </ul>
     </div>  
@@ -61,61 +64,61 @@
 <col width="48%" />
 </colgroup>
 <thead valign="bottom">
-<tr><th class="head">Name</th>
+<tr class="row-odd"><th class="head">Name</th>
 <th class="head">Type</th>
 <th class="head">Description</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr><td>id</td>
+<tr class="row-even"><td>id</td>
 <td>string</td>
 <td>File ID</td>
 </tr>
-<tr><td>name</td>
+<tr class="row-odd"><td>name</td>
 <td>string</td>
 <td>Name of file</td>
 </tr>
-<tr><td>title</td>
+<tr class="row-even"><td>title</td>
 <td>string</td>
 <td>Users can add title</td>
 </tr>
-<tr><td>caption</td>
+<tr class="row-odd"><td>caption</td>
 <td>string</td>
 <td>Caption</td>
 </tr>
-<tr><td>width</td>
+<tr class="row-even"><td>width</td>
 <td>int</td>
 <td>Picture width</td>
 </tr>
-<tr><td>height</td>
+<tr class="row-odd"><td>height</td>
 <td>int</td>
 <td>Picture height</td>
 </tr>
-<tr><td>filesize</td>
+<tr class="row-even"><td>filesize</td>
 <td>int</td>
 <td>File size</td>
 </tr>
-<tr><td>mimetype</td>
+<tr class="row-odd"><td>mimetype</td>
 <td>string</td>
 <td>Mimetype</td>
 </tr>
-<tr><td>folder</td>
+<tr class="row-even"><td>folder</td>
 <td>string</td>
 <td>Link to Folder</td>
 </tr>
-<tr><td>url</td>
+<tr class="row-odd"><td>url</td>
 <td>string</td>
 <td>Url</td>
 </tr>
-<tr><td>uploaded</td>
+<tr class="row-even"><td>uploaded</td>
 <td>datetime</td>
 <td>Uploaded at</td>
 </tr>
-<tr><td>url_rawfile</td>
+<tr class="row-odd"><td>url_rawfile</td>
 <td>string</td>
 <td>Link to original file</td>
 </tr>
-<tr><td>url_thumbnail</td>
+<tr class="row-even"><td>url_thumbnail</td>
 <td>string</td>
 <td>Thumbnail url</td>
 </tr>
@@ -148,54 +151,53 @@
 <colgroup>
 <col width="35%" />
 <col width="17%" />
-<col width="48%" />
+<col width="17%" />
+<col width="31%" />
 </colgroup>
 <thead valign="bottom">
-<tr><th class="head">Name</th>
-<th class="head">Type</th>
-<th class="head">Description</th>
+<tr class="row-odd"><th class="head" colspan="2">Name              | Type</th>
+<th class="head" colspan="2">Description</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr><td>id</td>
-<td>string</td>
-<td>ID</td>
+<tr class="row-even"><td colspan="2">id                | string</td>
+<td colspan="2">ID</td>
 </tr>
-<tr><td>thumbnail_url</td>
+<tr class="row-odd"><td>thumbnail_url</td>
 <td>string</td>
-<td>Thumbnail URL</td>
+<td colspan="2">Thumbnail URL</td>
 </tr>
-<tr><td>name</td>
+<tr class="row-even"><td>name</td>
 <td>string</td>
-<td>Folder name</td>
+<td colspan="2">Folder name</td>
 </tr>
-<tr><td>is_public</td>
+<tr class="row-odd"><td>is_public</td>
 <td>boolean</td>
-<td>Is the folder public?</td>
+<td colspan="2">Is the folder public?</td>
 </tr>
-<tr><td>view_count</td>
+<tr class="row-even"><td>view_count</td>
 <td>int</td>
-<td>Number of views</td>
+<td colspan="2">Number of views</td>
 </tr>
-<tr><td>creator</td>
+<tr class="row-odd"><td>creator</td>
 <td>string</td>
-<td>Link to the creator User</td>
+<td colspan="2">Link to the creator User</td>
 </tr>
-<tr><td>file_count</td>
+<tr class="row-even"><td>file_count</td>
 <td>int</td>
-<td>Number of files</td>
+<td colspan="2">Number of files</td>
 </tr>
-<tr><td>date_last_updated</td>
+<tr class="row-odd"><td>date_last_updated</td>
 <td>date</td>
-<td>Last updated on</td>
+<td colspan="2">Last updated on</td>
 </tr>
-<tr><td>files</td>
+<tr class="row-even"><td>files</td>
 <td>string</td>
-<td>Link to the File list</td>
+<td colspan="2">Link to the File list</td>
 </tr>
-<tr><td>url</td>
+<tr class="row-odd"><td>url</td>
 <td>string</td>
-<td>URL</td>
+<td colspan="2">URL</td>
 </tr>
 </tbody>
 </table>
@@ -227,75 +229,84 @@ this object.</p>
 <col width="48%" />
 </colgroup>
 <thead valign="bottom">
-<tr><th class="head">Name</th>
+<tr class="row-odd"><th class="head">Name</th>
 <th class="head">Type</th>
 <th class="head">Description</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr><td>id</td>
+<tr class="row-even"><td>id</td>
 <td>string</td>
 <td>ID</td>
 </tr>
-<tr><td>name</td>
+<tr class="row-odd"><td>name</td>
 <td>string</td>
 <td>Folder name</td>
 </tr>
-<tr><td>file_count</td>
+<tr class="row-even"><td>file_count</td>
 <td>int</td>
 <td>Number of files</td>
 </tr>
-<tr><td>view_count</td>
+<tr class="row-odd"><td>view_count</td>
 <td>int</td>
 <td>Number of views</td>
 </tr>
-<tr><td>star_count</td>
+<tr class="row-even"><td>star_count</td>
 <td>int</td>
 <td>Number of stars</td>
 </tr>
-<tr><td>flag_count</td>
+<tr class="row-odd"><td>flag_count</td>
 <td>int</td>
 <td>Number of flags</td>
 </tr>
-<tr><td>date</td>
+<tr class="row-even"><td>date</td>
 <td>date</td>
 <td>Last updated on</td>
 </tr>
-<tr><td>display_name</td>
+<tr class="row-odd"><td>display_name</td>
 <td>string</td>
 <td>Creator&#8217;s display name</td>
 </tr>
-<tr><td>is_starred</td>
-<td>boolean</td>
-<td>Is the actual user
-starred this folder?</td>
-</tr>
-<tr><td>is_flagged</td>
+<tr class="row-even"><td>is_flagged</td>
 <td>boolean</td>
 <td>Is the actual user
 flagged this folder?</td>
 </tr>
-<tr><td>thumbnail_url</td>
+<tr class="row-odd"><td>is_reshared</td>
+<td>boolean</td>
+<td>Has the user reshared
+this folder?</td>
+</tr>
+<tr class="row-even"><td>is_saved</td>
+<td>boolean</td>
+<td>Has the user saved this
+folder?</td>
+</tr>
+<tr class="row-odd"><td>is_starred</td>
+<td>boolean</td>
+<td>DEPRECATED</td>
+</tr>
+<tr class="row-even"><td>thumbnail_url</td>
 <td>string</td>
 <td>Thumbnail URL</td>
 </tr>
-<tr><td>is_public</td>
+<tr class="row-odd"><td>is_public</td>
 <td>boolean</td>
 <td>Is the folder public?</td>
 </tr>
-<tr><td>featured</td>
+<tr class="row-even"><td>featured</td>
 <td>boolean</td>
 <td>Is the folder featured?</td>
 </tr>
-<tr><td>creator</td>
+<tr class="row-odd"><td>creator</td>
 <td>string</td>
 <td>Link to the creator User</td>
 </tr>
-<tr><td>files</td>
+<tr class="row-even"><td>files</td>
 <td>string</td>
 <td>Link to the File list</td>
 </tr>
-<tr><td>url</td>
+<tr class="row-odd"><td>url</td>
 <td>string</td>
 <td>URL</td>
 </tr>
@@ -337,29 +348,29 @@ flagged this folder?</td>
 <col width="68%" />
 </colgroup>
 <thead valign="bottom">
-<tr><th class="head">Name</th>
+<tr class="row-odd"><th class="head">Name</th>
 <th class="head">Type</th>
 <th class="head">Private</th>
 <th class="head">Description</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr><td>username</td>
+<tr class="row-even"><td>username</td>
 <td>string</td>
 <td>&nbsp;</td>
 <td>Username</td>
 </tr>
-<tr><td>display_name</td>
+<tr class="row-odd"><td>display_name</td>
 <td>string</td>
 <td>&nbsp;</td>
 <td>Display name</td>
 </tr>
-<tr><td>description</td>
+<tr class="row-even"><td>description</td>
 <td>string</td>
 <td>&nbsp;</td>
 <td>Description</td>
 </tr>
-<tr><td>email</td>
+<tr class="row-odd"><td>email</td>
 <td>string</td>
 <td><ul class="first last simple">
 <li></li>
@@ -367,57 +378,57 @@ flagged this folder?</td>
 </td>
 <td>User email</td>
 </tr>
-<tr><td>slug</td>
+<tr class="row-even"><td>slug</td>
 <td>string</td>
 <td>&nbsp;</td>
 <td>Using this value you can build urls for the webpage. e.g. <a class="reference external" href="http://minus.com/u[slug">http://minus.com/u[slug</a>]</td>
 </tr>
-<tr><td>fb_profile_link</td>
+<tr class="row-odd"><td>fb_profile_link</td>
 <td>string</td>
 <td>&nbsp;</td>
 <td>If user has facebook connection, the value contains the link to facebook profile.</td>
 </tr>
-<tr><td>fb_username</td>
+<tr class="row-even"><td>fb_username</td>
 <td>string</td>
 <td>&nbsp;</td>
 <td>If user has facebook connection, the value contains the facebook username.</td>
 </tr>
-<tr><td>twitter_screen_name</td>
+<tr class="row-odd"><td>twitter_screen_name</td>
 <td>string</td>
 <td>&nbsp;</td>
 <td>If the user has twitter connection, twitter username</td>
 </tr>
-<tr><td>visits</td>
+<tr class="row-even"><td>visits</td>
 <td>integer</td>
 <td>&nbsp;</td>
 <td>Number of visits</td>
 </tr>
-<tr><td>karma</td>
+<tr class="row-odd"><td>karma</td>
 <td>integer</td>
 <td>&nbsp;</td>
 <td>Karma</td>
 </tr>
-<tr><td>shared</td>
+<tr class="row-even"><td>shared</td>
 <td>integer</td>
 <td>&nbsp;</td>
 <td>Number of shared elements</td>
 </tr>
-<tr><td>folders</td>
+<tr class="row-odd"><td>folders</td>
 <td>string</td>
 <td>&nbsp;</td>
 <td>Link to the folder list.</td>
 </tr>
-<tr><td>url</td>
+<tr class="row-even"><td>url</td>
 <td>string</td>
 <td>&nbsp;</td>
 <td>URL</td>
 </tr>
-<tr><td>avatar</td>
+<tr class="row-odd"><td>avatar</td>
 <td>string</td>
 <td>&nbsp;</td>
 <td>Avatar image url</td>
 </tr>
-<tr><td>storage_used</td>
+<tr class="row-even"><td>storage_used</td>
 <td>integer</td>
 <td><ul class="first last simple">
 <li></li>
@@ -425,7 +436,7 @@ flagged this folder?</td>
 </td>
 <td>Storage usage (bytes)</td>
 </tr>
-<tr><td>storage_quota</td>
+<tr class="row-odd"><td>storage_quota</td>
 <td>integer</td>
 <td><ul class="first last simple">
 <li></li>
@@ -467,33 +478,33 @@ flagged this folder?</td>
 <col width="56%" />
 </colgroup>
 <thead valign="bottom">
-<tr><th class="head">Name</th>
+<tr class="row-odd"><th class="head">Name</th>
 <th class="head">Type</th>
 <th class="head">Description</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr><td>body</td>
+<tr class="row-even"><td>body</td>
 <td>string</td>
 <td>Content of message</td>
 </tr>
-<tr><td>read</td>
+<tr class="row-odd"><td>read</td>
 <td>boolean</td>
 <td>Is message read?</td>
 </tr>
-<tr><td>target</td>
+<tr class="row-even"><td>target</td>
 <td>string</td>
 <td>Link to recipient user</td>
 </tr>
-<tr><td>sender</td>
+<tr class="row-odd"><td>sender</td>
 <td>string</td>
 <td>Link to sender user</td>
 </tr>
-<tr><td>thred</td>
+<tr class="row-even"><td>thred</td>
 <td>string</td>
 <td>Link to thread</td>
 </tr>
-<tr><td>created</td>
+<tr class="row-odd"><td>created</td>
 <td>datetime</td>
 <td>Created at</td>
 </tr>
@@ -545,7 +556,7 @@ flagged this folder?</td>
 <div id="searchbox" style="display: none">
   <h3>Quick search</h3>
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" size="18" />
+      <input type="text" name="q" />
       <input type="submit" value="Go" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
@@ -571,13 +582,13 @@ flagged this folder?</td>
         <li class="right" >
           <a href="index.html" title="Minus.com API v2 Reference"
              >previous</a> |</li>
-        <li><a href="../index.html">Minus API v2.10 documentation</a> &raquo;</li>
+        <li><a href="../index.html">Minus API 2.10 documentation</a> &raquo;</li>
           <li><a href="index.html" >Minus.com API v2 Reference</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
         &copy; Copyright 2011, Minus Inc..
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.2.
     </div>
   </body>
 </html>
