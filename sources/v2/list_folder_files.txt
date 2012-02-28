@@ -1,0 +1,149 @@
+.. _get_folder_files:
+
+File list in a Folder
+=====================
+
+URL: ``/api/v2/folders/[id]/files``
+
+:id: Folder ID (string)
+
+Example url::
+    
+    /api/v2/folders/0FQHJakL/files
+
+Description
+-----------
+
+    This interface is used to manage files in a folder. The GET method responses
+    a list of all the files in a folder. With POST method the applications can
+    upload a new file to this folder.
+
+    This interface uses pagination.
+
+Available methods
+-----------------
+ * GET
+    Give back a list of files in a folder.
+ * POST
+    Upload  new file
+
+POST fields
+-----------
+
+To upload a new file applications have to send 3 fields of the File object.
+
+Request Content type should be multipart/form-data.
+
+:caption: Caption (string)
+:filename: Filename (string)
+:file: File (file)
+
+
+Examples
+--------
+
+Example GET request
+^^^^^^^^^^^^^^^^^^^
+
+GET response::
+
+    {
+        "results": [{
+            "mimetype": "",
+            "uploaded": "2011-09-09 14:28:52",
+            "name": "macskafogo.jpeg",
+            "caption": "",
+            "url": "http://minus.com/api/v2/files/hvzcZLBsjyIF",
+            "title": "",
+            "height": 302,
+            "width": 400,
+            "uploaded_ago": 313,
+            "filesize": 38184,
+            "url_rawfile": "http://i.min.us/ihvzcZLBsjyIF.jpeg",
+            "folder": "http://minus.com/api/v2/folders/0FQHJakL",
+            "url_thumbnail": "http://k.min.us/jhvzcZLBsjyIF.jpeg",
+            "id": "hvzcZLBsjyIF"
+        }, {
+            "mimetype": "",
+            "uploaded": "2011-09-09 14:25:12",
+            "name": "41801_122019251192515_3961844_n.jpg",
+            "caption": "",
+            "url": "http://minus.com/api/v2/files/ZURP699t3rkE",
+            "title": "",
+            "height": 259,
+            "width": 180,
+            "uploaded_ago": 533,
+            "filesize": 22302,
+            "url_rawfile": "http://i.min.us/iZURP699t3rkE.jpg",
+            "folder": "http://minus.com/api/v2/folders/0FQHJakL",
+            "url_thumbnail": "http://k.min.us/jZURP699t3rkE.jpg",
+            "id": "ZURP699t3rkE"
+        }, {
+            "mimetype": "",
+            "uploaded": "2011-09-09 14:25:11",
+            "name": "vuk_1_406600_12746.jpg",
+            "caption": "",
+            "url": "http://minus.com/api/v2/files/OO0hyzBL1IGk",
+            "title": "",
+            "height": 423,
+            "width": 600,
+            "uploaded_ago": 534,
+            "filesize": 58677,
+            "url_rawfile": "http://i.min.us/iOO0hyzBL1IGk.jpg",
+            "folder": "http://minus.com/api/v2/folders/0FQHJakL",
+            "url_thumbnail": "http://k.min.us/jOO0hyzBL1IGk.jpg",
+            "id": "OO0hyzBL1IGk"
+        }],
+        "page": 1,
+        "next": null,
+        "per_page": 50,
+        "total": 3,
+        "pages": 1,
+        "previous": null
+    }
+
+Example Upload New File
+^^^^^^^^^^^^^^^^^^^^^^^
+
+Request::
+
+    POST /api/v2/folders/0FQHJakL/files?bearer_token=[token] HTTP/1.1
+    Host: minus.com
+    Content-Type: multipart/form-data; boundary=----WebKitFormBoundaryxECY8varBqIXZW4f
+    Accept-Charset: UTF-8,*;q=0.5
+
+    ------WebKitFormBoundaryAYAOHDWfizxZB8OE
+    Content-Disposition: form-data; name="file"; filename="test.txt"
+    Content-Type: text/plain
+
+    test
+    ------WebKitFormBoundaryAYAOHDWfizxZB8OE
+    Content-Disposition: form-data; name="filename"
+
+    test.txt
+    ------WebKitFormBoundaryAYAOHDWfizxZB8OE
+    Content-Disposition: form-data; name="caption"
+
+    testfile
+    ------WebKitFormBoundaryAYAOHDWfizxZB8OE--
+
+
+Response::
+
+    {
+       "mimetype":"",
+       "uploaded":"2011-09-12 05:39:13",
+       "name":"test.txt",
+       "caption":"testfile",
+       "url":"http://minus.com/api/v2/files/qb5C02eXHATa",
+       "title":"",
+       "height":0,
+       "width":0,
+       "uploaded_ago":0,
+       "filesize":4,
+       "url_rawfile":"http://i.min.us/iqb5C02eXHATa.txt",
+       "folder":"http://minus.com/api/v2/folders/0FQHJakL",
+       "url_thumbnail":"http://k.min.us/jqb5C02eXHATa.txt",
+       "id":"qb5C02eXHATa"
+    }
+

@@ -1,0 +1,91 @@
+.. _get_user_folders:
+
+User's folder list
+==================
+
+URL: ``/api/v2/users/[slug]/folders``
+
+:slug: User's slug
+
+Description
+-----------
+
+    This interface is used to manage folders of a user. The GET method responses
+    a list of user's folders. With POST method applications can create a new
+    folder.
+
+    This interface uses pagination.
+
+
+Available methods
+-----------------
+ * GET
+    Give back a list of folders belonging to a user.
+ * POST
+    Create new folder 
+
+POST fields
+-----------
+
+:name: Folder Name (string)
+:is_public: Public flag (boolean)
+
+Examples
+--------
+
+Get folder list
+^^^^^^^^^^^^^^^
+
+Response::
+
+    {
+        "results": [{
+            "files": "http://minus.com/api/v2/folders/0FQHJakL/files",
+            "view_count": 0,
+            "date_last_updated": "2011-09-09 14:29:18",
+            "name": "Test gallery",
+            "creator": "http://minus.com/api/v2/users/api_examples",
+            "url": "http://minus.com/api/v2/folders/0FQHJakL",
+            "thumbnail_url": "//k.minus.com/kOO0hyzBL1IGk.jpg",
+            "file_count": 3,
+            "is_public": true,
+            "id": "0FQHJakL"
+        }],
+        "page": 1,
+        "next": null,
+        "per_page": 50,
+        "total": 1,
+        "pages": 1,
+        "previous": null
+    }
+
+
+
+Create new folder
+^^^^^^^^^^^^^^^^^
+
+Request::
+
+    POST /api/v2/users/api_examples/folders?bearer_token=5e8e90c14d1c91cc5e50 HTTP/1.1
+    Host: minus.com
+    Content-Type: application/x-www-form-urlencoded; charset=UTF-8
+    Accept-Charset: UTF-8,*;q=0.5
+
+    name=test&is_public=true
+
+
+Response::    
+
+    {
+        "files": "http://minus.com/api/v2/folders/tflS3O6f/files",
+        "view_count": 0,
+        "date_last_updated": "2011-09-12 06:51:12",
+        "name": "test",
+        "creator": "http://minus.com/api/v2/users/api_examples",
+        "url": "http://minus.com/api/v2/folders/tflS3O6f",
+        "thumbnail_url": "//k.minus.com/k",
+        "file_count": 0,
+        "is_public": true,
+        "id": "tflS3O6f"
+    }
+

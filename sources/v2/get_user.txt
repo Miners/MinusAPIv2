@@ -1,0 +1,22 @@
+.. _get_user:
+
+User
+====
+
+URL: ``/api/v2/users/[slug]``
+
+Attributes:
+
++------+-----------------+-------------+
+| Name | Where?          | Description |
++======+=================+=============+
+| slug | part of the url | User's slug |
++------+-----------------+-------------+
+
+Available methods:
+ * GET
+
+Description:
+    Gives back the User.
+
+
